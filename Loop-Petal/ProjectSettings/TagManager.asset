@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Platform
+  - Death
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
@@ -47,4 +49,10 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 2061426359
+    locked: 0
+  - name: Units
+    uniqueID: 3727202629
+    locked: 0
+  - name: Checkpoint
+    uniqueID: 1523630085
     locked: 0

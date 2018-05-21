@@ -13,6 +13,10 @@ public class PlayerController : MonoBehaviour {
     public bool jump = false;
     [HideInInspector]
     public bool isMoving = false;
+    [HideInInspector]
+    public Transform checkpoint;
+    [HideInInspector]
+    public bool alive = true;
 
     public float speed = 1.0f;
     public float jumpForce = 1000f;
@@ -23,6 +27,7 @@ public class PlayerController : MonoBehaviour {
     private Animator anim;
     private Rigidbody2D rb2d;
     private Animator mouthAnim;
+    //private bool checkpointSet = false;
 
     // Use this for initialization
     void Awake () {
@@ -93,6 +98,29 @@ public class PlayerController : MonoBehaviour {
 
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Checkpoint"))
+        {
+            checkpoint = other.transform;
+            other.GetComponent<Animator>().SetTrigger("Activate");
+        }
+
+        if (other.gameObject.CompareTag("Death"))
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        alive = false;
+        transform.position = checkpoint.position;
+        alive = true;
+    }
+
+
+
     private void Flip()
     {
         facingRight = !facingRight;
@@ -107,6 +135,11 @@ public class PlayerController : MonoBehaviour {
         rb2d.AddForce(new Vector2(0f, jumpForce));
 
         jump = false;
+    }
+
+    private void SetCheckpoint()
+    {
+
     }
 
 }
