@@ -114,18 +114,18 @@ TextureImporter:
       name: PlayerMouth_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 5
+        x: 19
+        y: 0
         width: 18
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 21
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8364065ed535e448b7a309b8cfd7b5a
+      spriteID: 133c8c5186fb69946953947ed689a3fe
       vertices: []
       indices: 
       edges: []
@@ -134,18 +134,18 @@ TextureImporter:
       name: PlayerMouth_1
       rect:
         serializedVersion: 2
-        x: 29
-        y: 5
-        width: 16
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 38
+        y: 0
+        width: 18
+        height: 21
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 248b33dd500d6b34ea1e605c470e29af
+      spriteID: 7175617619cd29a4a87c290ea2ba2398
       vertices: []
       indices: 
       edges: []
@@ -154,18 +154,18 @@ TextureImporter:
       name: PlayerMouth_2
       rect:
         serializedVersion: 2
-        x: 56
-        y: 5
-        width: 16
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 57
+        y: 0
+        width: 18
+        height: 21
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e98ff305710c6347b9fc95ea2879207
+      spriteID: cce970742a07732428550b57f1e19cd1
       vertices: []
       indices: 
       edges: []
@@ -174,18 +174,18 @@ TextureImporter:
       name: PlayerMouth_3
       rect:
         serializedVersion: 2
-        x: 85
-        y: 5
-        width: 16
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 76
+        y: 0
+        width: 18
+        height: 21
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e6e291f539ed654e86107c1b0c00c99
+      spriteID: 32df83cfbf3171442aae0c99cfcf20be
       vertices: []
       indices: 
       edges: []
@@ -194,58 +194,18 @@ TextureImporter:
       name: PlayerMouth_4
       rect:
         serializedVersion: 2
-        x: 110
-        y: 5
-        width: 16
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 95
+        y: 0
+        width: 18
+        height: 21
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d82a64fe093cdf945968ad2bb5dbbb9c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerMouth_5
-      rect:
-        serializedVersion: 2
-        x: 136
-        y: 5
-        width: 16
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 23ea6845c882e48429090bda650480a5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerMouth_6
-      rect:
-        serializedVersion: 2
-        x: 159
-        y: 5
-        width: 16
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b35b9fb8947e07749af76a8741da6a6b
+      spriteID: b630e0c9f63040c4c8b98ca408023766
       vertices: []
       indices: 
       edges: []

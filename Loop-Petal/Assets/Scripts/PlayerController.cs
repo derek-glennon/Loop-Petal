@@ -22,12 +22,14 @@ public class PlayerController : MonoBehaviour {
     private bool onGround = false;
     private Animator anim;
     private Rigidbody2D rb2d;
+    private Animator mouthAnim;
 
     // Use this for initialization
     void Awake () {
 
         groundCheck = transform.Find("groundCheck");
         anim = GetComponent<Animator>();
+        mouthAnim = GameObject.Find("Mouth").GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
 
 	}
@@ -68,11 +70,18 @@ public class PlayerController : MonoBehaviour {
 
         //If 5 is pressed play beat blue
         if (Input.GetKeyDown("[5]") == true)
-            anim.SetTrigger("BeatBlue");
+        {
+            if (isMoving)
+            {
+                mouthAnim.SetTrigger("BeatBlue");
+            }
+            else
+                anim.SetTrigger("BeatBlue");
+        }
 
 
-            //Flip the Player if direction of movement is changed
-            if (horizontal > 0 && !facingRight)
+        //Flip the Player if direction of movement is changed
+        if (horizontal > 0 && !facingRight)
             Flip();
         else if (horizontal < 0 && facingRight)
             Flip();

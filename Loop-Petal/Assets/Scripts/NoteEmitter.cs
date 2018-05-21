@@ -11,7 +11,8 @@ public class NoteEmitter : MonoBehaviour {
 
        if (Input.GetKeyDown("[5]"))
         {
-            Transform clone = Instantiate(BlueNote, transform.position, Quaternion.identity) as Transform;
+            Transform clone;
+            clone = Instantiate(BlueNote, transform.position, Quaternion.identity) as Transform;
         }
 
     }
