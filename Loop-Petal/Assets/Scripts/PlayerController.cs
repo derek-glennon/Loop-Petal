@@ -11,17 +11,16 @@ public class PlayerController : MonoBehaviour {
     public bool facingRight = true;
     [HideInInspector]
     public bool jump = false;
+    [HideInInspector]
+    public bool isMoving = false;
 
-
-    public float moveForce = 365f;
-    public float maxSpeed = 5f;
-
+    public float speed = 1.0f;
     public float jumpForce = 1000f;
+
 
     private Transform groundCheck;
     private bool onGround = false;
     private Animator anim;
-
     private Rigidbody2D rb2d;
 
     // Use this for initialization
@@ -50,24 +49,35 @@ public class PlayerController : MonoBehaviour {
         //Get Horizontal Input
         float horizontal = Input.GetAxis("Horizontal");
 
-        //Set the animator condition speed so it knows to change animation to running
-        anim.SetFloat("Speed", Mathf.Abs(horizontal));
-
-        //If speed is less than max, set it
-        if (horizontal * rb2d.velocity.x < maxSpeed)
-            rb2d.AddForce(Vector2.right * horizontal * moveForce);
+        //The animation will change depending on Input, rather than speed also set isMoving
+        if (horizontal != 0)
+        {
+            isMoving = true;
+            anim.SetBool("IsMoving", true);
+        }
+        else if (horizontal == 0 && anim.GetBool("IsMoving") == true)
+        {
+            isMoving = false;
+            anim.SetBool("IsMoving", false);
+        }
             
 
-        //If speed is greater than max, limit it to the max
-        if (Mathf.Abs(rb2d.velocity.x) > maxSpeed)
-            rb2d.velocity = new Vector2(Mathf.Sign(rb2d.velocity.x) * maxSpeed, rb2d.velocity.y);
+        //If there is input, move the player
+        if(horizontal != 0)
+            GetComponent<Transform>().Translate(new Vector3(horizontal * speed, 0.0f, 0.0f) * Time.deltaTime);
+
+        //If 5 is pressed play beat blue
+        if (Input.GetKeyDown("[5]") == true)
+            anim.SetTrigger("BeatBlue");
 
 
-        if (horizontal > 0 && !facingRight)
+            //Flip the Player if direction of movement is changed
+            if (horizontal > 0 && !facingRight)
             Flip();
         else if (horizontal < 0 && facingRight)
             Flip();
 
+        //Jump if able
         if (jump)
             Jump();
 
