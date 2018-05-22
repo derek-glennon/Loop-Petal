@@ -27,7 +27,8 @@ public class PlayerController : MonoBehaviour {
     private Animator anim;
     private Rigidbody2D rb2d;
     private Animator mouthAnim;
-    //private bool checkpointSet = false;
+    private bool checkpointSet = false;
+    private Animator currentCheckpoint;
 
     // Use this for initialization
     void Awake () {
@@ -102,8 +103,21 @@ public class PlayerController : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Checkpoint"))
         {
-            checkpoint = other.transform;
-            other.GetComponent<Animator>().SetTrigger("Activate");
+            if (!checkpointSet)
+            {
+                checkpointSet = true;
+                checkpoint = other.transform;
+                other.GetComponent<Animator>().SetTrigger("Activate");
+                currentCheckpoint = other.GetComponent<Animator>();
+            }
+            else if (checkpointSet && other.transform != checkpoint)
+            {
+                checkpoint = other.transform;
+                currentCheckpoint.SetTrigger("Deactivate");
+                other.GetComponent<Animator>().SetTrigger("Activate");
+                currentCheckpoint = other.GetComponent<Animator>();
+            }
+
         }
 
         if (other.gameObject.CompareTag("Death"))
