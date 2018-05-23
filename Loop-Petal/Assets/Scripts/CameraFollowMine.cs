@@ -11,7 +11,7 @@ public class CameraFollowMine : MonoBehaviour {
     // Use this for initialization
     void Awake () {
 
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.Find("Player").transform;
 
         trans = GetComponent<Transform>();
 

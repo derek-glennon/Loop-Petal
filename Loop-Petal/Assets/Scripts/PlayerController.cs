@@ -50,6 +50,10 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButtonDown("Jump") && onGround)
             jump = true;
 
+        //If player is dead and the death animation has finished, then respawn
+        if (!alive && anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerNoiseDeath") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95f)
+            Respawn();
+
     }
 
     private void FixedUpdate()
@@ -69,21 +73,29 @@ public class PlayerController : MonoBehaviour {
             anim.SetBool("IsMoving", false);
         }
             
-
-        //If there is input, move the player
-        if(horizontal != 0)
-            GetComponent<Transform>().Translate(new Vector3(horizontal * speed, 0.0f, 0.0f) * Time.deltaTime);
-
-        //If 5 is pressed play beat blue
-        if (Input.GetKeyDown("[5]") == true)
+        if (alive)
         {
-            if (isMoving)
+            //If there is input, move the player
+            if (horizontal != 0)
+                GetComponent<Transform>().Translate(new Vector3(horizontal * speed, 0.0f, 0.0f) * Time.deltaTime);
+
+            //If 5 is pressed play beat blue
+            if (Input.GetKeyDown("[5]") == true)
             {
-                mouthAnim.SetTrigger("BeatBlue");
+
+                if (isMoving)
+                {
+                    mouthAnim.SetTrigger("BeatBlue");
+                }
+                else
+                    anim.SetTrigger("BeatBlue");
             }
-            else
-                anim.SetTrigger("BeatBlue");
+
+            //Jump if able
+            if (jump)
+                Jump();
         }
+
 
 
         //Flip the Player if direction of movement is changed
@@ -92,9 +104,13 @@ public class PlayerController : MonoBehaviour {
         else if (horizontal < 0 && facingRight)
             Flip();
 
-        //Jump if able
-        if (jump)
-            Jump();
+
+
+        if (!alive)
+        {
+            transform.Translate(new Vector3(.1f, .1f, 0.0f) * Time.deltaTime, Space.World);
+            transform.Rotate(Vector3.forward * Time.deltaTime * 50f);
+        }
 
 
     }
@@ -129,8 +145,19 @@ public class PlayerController : MonoBehaviour {
     private void Die()
     {
         alive = false;
-        transform.position = checkpoint.position;
+        anim.SetTrigger("Die");
+        rb2d.constraints = RigidbodyConstraints2D.None;
+        rb2d.gravityScale = 0.0f;
+        rb2d.velocity = Vector3.zero;
+    }
+
+    private void Respawn()
+    {
         alive = true;
+        rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
+        transform.rotation = Quaternion.identity;
+        rb2d.gravityScale = 1.0f;
+        transform.position = checkpoint.position;
     }
 
 

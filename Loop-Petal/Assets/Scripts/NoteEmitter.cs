@@ -5,14 +5,25 @@ using UnityEngine;
 public class NoteEmitter : MonoBehaviour {
 
     public Transform BlueNote;
-	
-	// Update is called once per frame
-	void Update () {
 
-       if (Input.GetKeyDown("[5]"))
+    private PlayerController player;
+
+
+    private void Start()
+    {
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
+    }
+
+    // Update is called once per frame
+    void Update () {
+
+        if (player.alive)
         {
-            Transform clone;
-            clone = Instantiate(BlueNote, transform.position, Quaternion.identity) as Transform;
+            if (Input.GetKeyDown("[5]"))
+            {
+                Transform clone;
+                clone = Instantiate(BlueNote, transform.position, Quaternion.identity) as Transform;
+            }
         }
 
     }
