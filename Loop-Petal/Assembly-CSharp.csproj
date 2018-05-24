@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CameraFollowMine.cs" />
     <Compile Include="Assets\Scripts\NoteEmitter.cs" />
+    <Compile Include="Assets\Scripts\PlatformController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/eagle/Documents/GitHub/Loop-Petal/Loop-Petal/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

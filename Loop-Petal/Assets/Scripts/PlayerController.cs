@@ -17,9 +17,24 @@ public class PlayerController : MonoBehaviour {
     public Transform checkpoint;
     [HideInInspector]
     public bool alive = true;
+    [HideInInspector]
+    public bool blueActive = false;
+    [HideInInspector]
+    public bool orangeActive = false;
+    [HideInInspector]
+    public bool rotateOrange = false;
+
+    public float blueTimer;
+    public float orangeTimer;
+
+    public float blueTimerInit = 0.95f;
+    public float orangeTimerInit = 0.95f;
 
     public float speed = 1.0f;
     public float jumpForce = 1000f;
+
+    public Transform BlueNote;
+    public Transform OrangeNote;
 
 
     private Transform groundCheck;
@@ -29,6 +44,12 @@ public class PlayerController : MonoBehaviour {
     private Animator mouthAnim;
     private bool checkpointSet = false;
     private Animator currentCheckpoint;
+    private Transform emitter;
+
+    //Cheat Codes
+    private List<GameObject> Checkpoints;
+    List<string> cheatInputs = new List<string>(new string[] { "1", "2", "3", "4"});
+
 
     // Use this for initialization
     void Awake () {
@@ -37,8 +58,21 @@ public class PlayerController : MonoBehaviour {
         anim = GetComponent<Animator>();
         mouthAnim = GameObject.Find("Mouth").GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
+        emitter = GameObject.Find("NoteEmitter").GetComponent<Transform>();
 
-	}
+        blueTimer = blueTimerInit;
+        orangeTimer = orangeTimerInit;
+
+
+        //Cheat Codes
+        Checkpoints = new List<GameObject>();
+        Checkpoints.Add(GameObject.Find("Checkpoint"));
+        for (int i  = 0; i < cheatInputs.Count; i++)
+        {
+            Checkpoints.Add(GameObject.Find("Checkpoint (" + cheatInputs[i] + ")"));
+        }
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -53,6 +87,30 @@ public class PlayerController : MonoBehaviour {
         //If player is dead and the death animation has finished, then respawn
         if (!alive && anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerNoiseDeath") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95f)
             Respawn();
+
+        //Blue Timer
+        if (blueActive)
+            blueTimer -= Time.deltaTime;
+        else if (!blueActive)
+            blueTimer = blueTimerInit;
+
+        //Orange Timer
+        if (orangeActive)
+            orangeTimer -= Time.deltaTime;
+        else if (!orangeActive)
+            orangeTimer = orangeTimerInit;
+
+
+
+        //Cheats to help me test stuff out
+        for (int i = 0; i < cheatInputs.Count; i++)
+        {
+            if (Input.GetKeyDown(cheatInputs[i]))
+            {
+                transform.position = Checkpoints[i].transform.position;
+            }
+        }
+
 
     }
 
@@ -79,33 +137,34 @@ public class PlayerController : MonoBehaviour {
             if (horizontal != 0)
                 GetComponent<Transform>().Translate(new Vector3(horizontal * speed, 0.0f, 0.0f) * Time.deltaTime);
 
-            //If 5 is pressed play beat blue
+            //If 5 is pressed play blue note
             if (Input.GetKeyDown("[5]") == true)
-            {
+                EmitBlueNote();
 
-                if (isMoving)
-                {
-                    mouthAnim.SetTrigger("BeatBlue");
-                }
-                else
-                    anim.SetTrigger("BeatBlue");
-            }
+            //If 4 is pressed play orange note
+            if (Input.GetKeyDown("[4]") == true)
+                EmitOrangeNote();
+
+            //Flip the Player if direction of movement is changed
+            if (horizontal > 0 && !facingRight)
+                Flip();
+            else if (horizontal < 0 && facingRight)
+                Flip();
 
             //Jump if able
             if (jump)
                 Jump();
         }
 
+        //Turning off notes
+        if (blueTimer < 0.0f)
+            blueActive = false;
+
+        if (orangeTimer < 0.0f)
+            orangeActive = false;
 
 
-        //Flip the Player if direction of movement is changed
-        if (horizontal > 0 && !facingRight)
-            Flip();
-        else if (horizontal < 0 && facingRight)
-            Flip();
-
-
-
+        //Death Animation
         if (!alive)
         {
             transform.Translate(new Vector3(.1f, .1f, 0.0f) * Time.deltaTime, Space.World);
@@ -117,6 +176,8 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+
+        //Checkpoints
         if (other.gameObject.CompareTag("Checkpoint"))
         {
             if (!checkpointSet)
@@ -136,6 +197,7 @@ public class PlayerController : MonoBehaviour {
 
         }
 
+        //Death
         if (other.gameObject.CompareTag("Death"))
         {
             Die();
@@ -160,8 +222,6 @@ public class PlayerController : MonoBehaviour {
         transform.position = checkpoint.position;
     }
 
-
-
     private void Flip()
     {
         facingRight = !facingRight;
@@ -178,9 +238,44 @@ public class PlayerController : MonoBehaviour {
         jump = false;
     }
 
-    private void SetCheckpoint()
+    private void EmitBlueNote()
+    {
+        if (blueTimer == blueTimerInit)
+        {
+            blueActive = true;
+
+            if (isMoving)
+            {
+                mouthAnim.SetTrigger("BeatBlue");
+            }
+            else
+                anim.SetTrigger("BeatBlue");
+
+            Transform clone;
+            clone = Instantiate(BlueNote, emitter.position, Quaternion.identity) as Transform;
+        }
+
+    }
+
+
+    private void EmitOrangeNote()
     {
 
+        if (orangeTimer == orangeTimerInit)
+        {
+            orangeActive = true;
+            rotateOrange = true;
+
+            if (isMoving)
+            {
+                mouthAnim.SetTrigger("BeatBlue");
+            }
+            else
+                anim.SetTrigger("BeatBlue");
+
+            Transform clone;
+            clone = Instantiate(OrangeNote, emitter.position, Quaternion.identity) as Transform;
+        }
     }
 
 }

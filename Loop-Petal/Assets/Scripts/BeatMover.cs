@@ -65,20 +65,16 @@ public class BeatMover : MonoBehaviour {
 
         //Destroy after one animation
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("BlueNote") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95f)
-        {
-            // Avoid any reload.
             Destroy(gameObject);
-        }
-    
+
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("OrangeNote") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95f)
+            Destroy(gameObject);
+
+
 
 
 
     }
 
-    private void FlipSpeed()
-    {
-        float newXSpeed= xSpeed;
-        newXSpeed *= -1.0f;
-        xSpeed = newXSpeed;
-    }
+
 }
