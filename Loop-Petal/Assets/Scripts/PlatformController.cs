@@ -19,14 +19,18 @@ public class PlatformController : MonoBehaviour {
         BluePlatforms = GameObject.FindGameObjectsWithTag("BluePlatform");
         OrangePlatforms = GameObject.FindGameObjectsWithTag("OrangePlatform");
 
+
     }
 
     // Update is called once per frame
     void FixedUpdate () {
 
-        if (player.blueActive)
+        if (player.blueTimer == player.blueTimerInit)
             ActivateBlue();
-        else if (!player.blueActive)
+        else if (player.blueTimer <= player.blueTimerInit * 0.50f && player.blueActive)
+            DeactivateBlue();
+
+        if (!player.blueActive)
             DeactivateBlue();
 
         if (player.orangeActive && player.orangeTimer == player.orangeTimerInit)

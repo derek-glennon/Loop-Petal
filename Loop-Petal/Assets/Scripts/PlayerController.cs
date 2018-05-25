@@ -20,7 +20,11 @@ public class PlayerController : MonoBehaviour {
     [HideInInspector]
     public bool blueActive = false;
     [HideInInspector]
+    public bool blueLoop = false;
+    [HideInInspector]
     public bool orangeActive = false;
+    [HideInInspector]
+    public bool orangeLoop = false;
     [HideInInspector]
     public bool rotateOrange = false;
 
@@ -146,11 +150,31 @@ public class PlayerController : MonoBehaviour {
 
             //If 5 is pressed play blue note
             if (Input.GetKeyDown("[5]") == true)
-                EmitBlueNote();
+            {
+                if (!blueLoop)
+                    blueLoop = true;
+                else if (blueLoop)
+                    blueLoop = false;
+            }
+                
+                //EmitBlueNote();
 
             //If 4 is pressed play orange note
             if (Input.GetKeyDown("[4]") == true)
+            {
+                if (!orangeLoop)
+                    orangeLoop = true;
+                else if (orangeLoop)
+                    orangeLoop = false;
+            }
+
+            if (blueLoop && blueTimer == blueTimerInit)
+                EmitBlueNote();
+
+            if (orangeLoop && orangeTimer == orangeTimerInit)
                 EmitOrangeNote();
+                
+                //EmitOrangeNote();
 
             //Flip the Player if direction of movement is changed
             if (horizontal > 0 && !facingRight)
@@ -214,6 +238,8 @@ public class PlayerController : MonoBehaviour {
     private void Die()
     {
         alive = false;
+        blueLoop = false;
+        orangeLoop = false;
         anim.SetTrigger("Die");
         rb2d.constraints = RigidbodyConstraints2D.None;
         rb2d.gravityScale = 0.0f;
