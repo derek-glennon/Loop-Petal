@@ -1,6 +1,6 @@
-WebGL
+WindowsStandalone
 PlayerPath?
-C:/Users/eagle/Documents/GitHub/Loop-Petal/Loop-Petal/Builds/WebBuild
+C:/Users/eagle/Documents/GitHub/Loop-Petal/Loop-Petal/Builds/PCBuild/PCBuild.exe
 SceneListBegin?
 Assets/Scenes/Main.unity
 SceneListEnd?
