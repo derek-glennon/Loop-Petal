@@ -1,6 +1,6 @@
-WindowsStandalone
+WebGL
 PlayerPath?
-C:/Users/eagle/Documents/GitHub/Loop-Petal/Loop-Petal/Builds/Builds.exe
+C:/Users/eagle/Documents/GitHub/Loop-Petal/Loop-Petal/Builds/WebBuild
 SceneListBegin?
 Assets/Scenes/Main.unity
 SceneListEnd?
@@ -141,12 +141,14 @@ e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 67a5f2c97205d2e41a8ed7c7ce898f6e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
 67a5f2c97205d2e41a8ed7c7ce898f6e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
-e86803fbe17ca0441cf4d6d6db0a3c0c Assembly-CSharp.dll:.PlayerController
+b0ab4e3787bf4af0a3e8e8a447505c0a Assembly-CSharp.dll:.PlayerController
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
+b20c2323b83ee063d6cd4d4970ff3455 Assembly-CSharp.dll:.PlatformController
 307d9f491fea791345eb6aa66e84c179 Assembly-CSharp.dll:.CameraFollow
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CheckpointController
 b4fef63d9e9c86dcde848421a4af7624 Assembly-CSharp.dll:.BeatMover
