@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour {
 
     //Cheat Codes
     private List<GameObject> Checkpoints;
-    List<string> cheatInputs = new List<string>(new string[] { "1", "2", "3", "4", "5"});
+    List<string> cheatInputs = new List<string>(new string[] { "[1]", "[2]", "[3]", "[4]", "[5]"});
 
 
     // Use this for initialization
@@ -78,9 +78,9 @@ public class PlayerController : MonoBehaviour {
         //Cheat Codes
         Checkpoints = new List<GameObject>();
         Checkpoints.Add(GameObject.Find("Checkpoint"));
-        for (int i  = 0; i < cheatInputs.Count; i++)
+        for (int i  = 1; i < cheatInputs.Count; i++)
         {
-            Checkpoints.Add(GameObject.Find("Checkpoint (" + cheatInputs[i] + ")"));
+            Checkpoints.Add(GameObject.Find("Checkpoint (" + i.ToString() + ")"));
         }
 
     }
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour {
         onGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
         
         // If the jump button is pressed and the player is grounded then the player should jump.
-        if (Input.GetButtonDown("Jump") && onGround)
+        if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow) && onGround)
             jump = true;
 
         //If player is dead and the death animation has finished, then respawn
@@ -149,18 +149,20 @@ public class PlayerController : MonoBehaviour {
                 GetComponent<Transform>().Translate(new Vector3(horizontal * speed, 0.0f, 0.0f) * Time.deltaTime);
 
             //If 5 is pressed play blue note
-            if (Input.GetKeyDown("[5]") == true)
+            //if (Input.GetKeyDown("[5]") == true || Input.GetKeyDown(KeyCode.I) == true)
+            if (Input.GetKeyDown(KeyCode.S) == true || Input.GetKeyDown("1") == true)
             {
                 if (!blueLoop)
                     blueLoop = true;
                 else if (blueLoop)
                     blueLoop = false;
             }
-                
-                //EmitBlueNote();
+
+            //EmitBlueNote();
 
             //If 4 is pressed play orange note
-            if (Input.GetKeyDown("[4]") == true)
+            //if (Input.GetKeyDown("[4]") == true || Input.GetKeyDown(KeyCode.O) == true)
+            if (Input.GetKeyDown(KeyCode.A) == true || Input.GetKeyDown("2") == true)
             {
                 if (!orangeLoop)
                     orangeLoop = true;
