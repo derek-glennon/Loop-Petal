@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\BeatMover.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CameraFollowMine.cs" />
+    <Compile Include="Assets\Scripts\CheckpointController.cs" />
     <Compile Include="Assets\Scripts\NoteEmitter.cs" />
     <Compile Include="Assets\Scripts\PlatformController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />

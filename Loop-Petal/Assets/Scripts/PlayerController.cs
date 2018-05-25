@@ -37,6 +37,12 @@ public class PlayerController : MonoBehaviour {
     public Transform OrangeNote;
 
 
+    private AudioSource BeatSource;
+    public AudioClip JumpAudio;
+    public AudioClip BlueAudio;
+    public AudioClip OrangeAudio;
+
+
     private Transform groundCheck;
     private bool onGround = false;
     private Animator anim;
@@ -48,7 +54,7 @@ public class PlayerController : MonoBehaviour {
 
     //Cheat Codes
     private List<GameObject> Checkpoints;
-    List<string> cheatInputs = new List<string>(new string[] { "1", "2", "3", "4"});
+    List<string> cheatInputs = new List<string>(new string[] { "1", "2", "3", "4", "5"});
 
 
     // Use this for initialization
@@ -59,6 +65,7 @@ public class PlayerController : MonoBehaviour {
         mouthAnim = GameObject.Find("Mouth").GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
         emitter = GameObject.Find("NoteEmitter").GetComponent<Transform>();
+        BeatSource = GetComponent<AudioSource>();
 
         blueTimer = blueTimerInit;
         orangeTimer = orangeTimerInit;
@@ -235,6 +242,9 @@ public class PlayerController : MonoBehaviour {
     {
         rb2d.AddForce(new Vector2(0f, jumpForce));
 
+        BeatSource.clip = JumpAudio;
+        BeatSource.Play();
+
         jump = false;
     }
 
@@ -253,6 +263,8 @@ public class PlayerController : MonoBehaviour {
 
             Transform clone;
             clone = Instantiate(BlueNote, emitter.position, Quaternion.identity) as Transform;
+            BeatSource.clip = BlueAudio;
+            BeatSource.Play();
         }
 
     }
@@ -275,6 +287,8 @@ public class PlayerController : MonoBehaviour {
 
             Transform clone;
             clone = Instantiate(OrangeNote, emitter.position, Quaternion.identity) as Transform;
+            BeatSource.clip = OrangeAudio;
+            BeatSource.Play();
         }
     }
 

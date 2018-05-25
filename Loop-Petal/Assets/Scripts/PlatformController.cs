@@ -9,6 +9,9 @@ public class PlatformController : MonoBehaviour {
     private GameObject[] BluePlatforms;
     private GameObject[] OrangePlatforms;
 
+    public  AnimationClip horizToVert;
+    public AnimationClip vertToHoriz;
+
     // Use this for initialization
     void Awake() {
 
@@ -28,6 +31,11 @@ public class PlatformController : MonoBehaviour {
 
         if (player.orangeActive && player.orangeTimer == player.orangeTimerInit)
             RotateOrange();
+
+        foreach (GameObject orangeplatform in OrangePlatforms)
+        {
+            orangeplatform.GetComponent<Animator>().speed = vertToHoriz.length / player.orangeTimerInit;
+        }
 
     }
 

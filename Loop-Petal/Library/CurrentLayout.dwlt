@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 392}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -106,10 +106,10 @@ MonoBehaviour:
     y: 30
     width: 1536
     height: 771
-  m_MinSize: {x: 683, y: 342}
-  m_MaxSize: {x: 12008, y: 8042}
+  m_MinSize: {x: 683, y: 492}
+  m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 5232
+  controlID: 2416
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -130,10 +130,10 @@ MonoBehaviour:
     y: 0
     width: 1225
     height: 771
-  m_MinSize: {x: 406, y: 342}
-  m_MaxSize: {x: 8006, y: 8042}
+  m_MinSize: {x: 406, y: 492}
+  m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 5292
+  controlID: 2430
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 5293
+  controlID: 2431
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -227,16 +227,16 @@ MonoBehaviour:
     y: 465
     width: 1225
     height: 306
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 16}
+  m_MinSize: {x: 232, y: 271}
+  m_MaxSize: {x: 10002, y: 10021}
+  m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
   - {fileID: 16}
   - {fileID: 17}
   - {fileID: 18}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 3
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -363,10 +363,10 @@ MonoBehaviour:
     height: 444
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
-    scrollPos: {x: 0, y: 469}
+    scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: d4a0fdfff0fbffff00000000162d0000282d00008a2d0000
+    m_ExpandedIDs: f0fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -416,14 +416,14 @@ MonoBehaviour:
     height: 444
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 4333.53815463536
+  lastFramingTime: 5835.7823793979
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 26.055334, y: 0.6059349, z: -0.09667969}
+    m_Target: {x: 32.10509, y: 0.6470399, z: -0.16015625}
     speed: 2
-    m_Value: {x: 26.055334, y: 0.6059349, z: -0.09667969}
+    m_Value: {x: 32.10509, y: 0.6470399, z: -0.16015625}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -455,9 +455,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 7.8418317
+    m_Target: 16.745863
     speed: 2
-    m_Value: 7.8418317
+    m_Value: 16.745863
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -506,20 +506,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Prefabs/Platforms
+    - Assets/Sprites
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs/Platforms
+  - Assets/Sprites
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\eagle\Documents\GitHub\Loop-Petal\Loop-Petal
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 562c0000
-    m_LastClickedID: 11350
-    m_ExpandedIDs: 000000004e2900000e2a00001c2a00007a2a00009c2c000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 8}
+    m_SelectedIDs: cc2c0000
+    m_LastClickedID: 11468
+    m_ExpandedIDs: 00000000502900001e2a00002c2a00008c2a0000cc2c000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -547,7 +547,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004e2900000e2a00001c2a00007a2a00009c2c000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000502900001e2a00002c2a00008c2a0000cc2c000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -572,9 +572,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 7e02feffda04feffc0fbfdff
-    m_LastClickedInstanceID: -132160
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000542b00001e2c0000000000002c2a0000b42a0000949d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -655,7 +655,7 @@ MonoBehaviour:
   m_AnimEditor: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -132160
+  m_LastSelectedObjectID: 11628
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -724,14 +724,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 1
+    - e00: 0.8547688
       e01: 0
       e02: 0
-      e03: 0
+      e03: -27.738464
       e10: 0
-      e11: 1
+      e11: 0.8547688
       e12: 0
-      e13: 0
+      e13: 25.643066
       e20: 0
       e21: 0
       e22: 1
@@ -740,14 +740,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 1
+    - e00: 0.5699482
       e01: 0
       e02: 0
-      e03: 0
+      e03: 170.2312
       e10: 0
-      e11: 1
+      e11: 0.5699482
       e12: 0
-      e13: 0
+      e13: 1.3212433
       e20: 0
       e21: 0
       e22: 1
@@ -756,14 +756,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.5472637
+    - e00: 0.5878206
       e01: 0
       e02: 0
-      e03: 244.09764
+      e03: 197.63412
       e10: 0
-      e11: 0.5472637
+      e11: 0.5878206
       e12: 0
-      e13: 4.0547256
+      e13: 15.504112
       e20: 0
       e21: 0
       e22: 1
@@ -788,14 +788,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 1
+    - e00: 0.9203838
       e01: 0
       e02: 0
-      e03: 0
+      e03: -18.13382
       e10: 0
-      e11: 1
+      e11: 0.9203838
       e12: 0
-      e13: 0
+      e13: -36.06717
       e20: 0
       e21: 0
       e22: 1
@@ -804,14 +804,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.54902875
+    - e00: 0.81479967
       e01: 0
       e02: 0
-      e03: 216.4867
+      e03: 151.51471
       e10: 0
-      e11: 0.54902875
+      e11: 0.81479967
       e12: 0
-      e13: 2.6485748
+      e13: -63.554367
       e20: 0
       e21: 0
       e22: 1
