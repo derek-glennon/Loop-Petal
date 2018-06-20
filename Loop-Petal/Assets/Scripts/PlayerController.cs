@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -37,6 +38,9 @@ public class PlayerController : MonoBehaviour {
     public float speed = 1.0f;
     public float jumpForce = 1000f;
 
+    private bool bluePressed;
+    private bool orangePressed;
+
     public Transform BlueNote;
     public Transform OrangeNote;
 
@@ -56,6 +60,10 @@ public class PlayerController : MonoBehaviour {
     private Animator currentCheckpoint;
     private Transform emitter;
 
+    private float timer;
+
+    public Slider timerSlider;
+
     //Cheat Codes
     private List<GameObject> Checkpoints;
     List<string> cheatInputs = new List<string>(new string[] { "[1]", "[2]", "[3]", "[4]", "[5]"});
@@ -74,6 +82,11 @@ public class PlayerController : MonoBehaviour {
         blueTimer = blueTimerInit;
         orangeTimer = orangeTimerInit;
 
+        bluePressed = false;
+        orangePressed = false;
+
+        timer = 0.0f;
+
 
         //Cheat Codes
         Checkpoints = new List<GameObject>();
@@ -88,11 +101,17 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        Debug.Log(timer);
+        timer += Time.deltaTime;
+        if (timer >= 1.0f)
+            timer = 0.0f;
+        timerSlider.value = timer;
+
         // The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
         onGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
         
         // If the jump button is pressed and the player is grounded then the player should jump.
-        if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow) && onGround)
+        if ( (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow) ) && onGround)
             jump = true;
 
         //If player is dead and the death animation has finished, then respawn
@@ -123,10 +142,14 @@ public class PlayerController : MonoBehaviour {
         }
 
 
+
+
     }
 
     private void FixedUpdate()
     {
+
+
         //Get Horizontal Input
         float horizontal = Input.GetAxis("Horizontal");
 
@@ -148,7 +171,7 @@ public class PlayerController : MonoBehaviour {
             if (horizontal != 0)
                 GetComponent<Transform>().Translate(new Vector3(horizontal * speed, 0.0f, 0.0f) * Time.deltaTime);
 
-            //If 5 is pressed play blue note
+            //If 5 is pressed start blue loop
             //if (Input.GetKeyDown("[5]") == true || Input.GetKeyDown(KeyCode.I) == true)
             if (Input.GetKeyDown(KeyCode.S) == true || Input.GetKeyDown("1") == true)
             {
@@ -158,9 +181,7 @@ public class PlayerController : MonoBehaviour {
                     blueLoop = false;
             }
 
-            //EmitBlueNote();
-
-            //If 4 is pressed play orange note
+            //If 4 is pressed start orange loop
             //if (Input.GetKeyDown("[4]") == true || Input.GetKeyDown(KeyCode.O) == true)
             if (Input.GetKeyDown(KeyCode.A) == true || Input.GetKeyDown("2") == true)
             {
@@ -170,13 +191,27 @@ public class PlayerController : MonoBehaviour {
                     orangeLoop = false;
             }
 
-            if (blueLoop && blueTimer == blueTimerInit)
-                EmitBlueNote();
+            if (bluePressed)
+            {
+                bluePressed = false;
+                if (!blueLoop)
+                    blueLoop = true;
+                else if (blueLoop)
+                    blueLoop = false;
+            }
 
-            if (orangeLoop && orangeTimer == orangeTimerInit)
-                EmitOrangeNote();
-                
-                //EmitOrangeNote();
+            if (orangePressed)
+            {
+                orangePressed = false;
+                if (!orangeLoop)
+                    orangeLoop = true;
+                else if (orangeLoop)
+                    orangeLoop = false;
+            }
+
+
+
+
 
             //Flip the Player if direction of movement is changed
             if (horizontal > 0 && !facingRight)
@@ -188,6 +223,13 @@ public class PlayerController : MonoBehaviour {
             if (jump)
                 Jump();
         }
+
+        //If the loops are active, play the notes
+        if (blueLoop && blueTimer == blueTimerInit)
+            EmitBlueNote();
+
+        if (orangeLoop && orangeTimer == orangeTimerInit)
+            EmitOrangeNote();
 
         //Turning off notes
         if (blueTimer < 0.0f)
@@ -235,13 +277,36 @@ public class PlayerController : MonoBehaviour {
         {
             Die();
         }
+
+
+        //Loop Buttons
+        if (other.gameObject.CompareTag("BlueButton"))
+        {
+            bluePressed = true;
+        }
+        if (other.gameObject.CompareTag("OrangeButton"))
+        {
+            orangePressed = true;
+        }
+
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        //Loop Buttons
+        if (other.gameObject.CompareTag("BlueButton"))
+        {
+            //inBlueRange = false;
+        }
+        if (other.gameObject.CompareTag("OrangeButton"))
+        {
+            //inOrangeRange = false;
+        }
     }
 
     private void Die()
     {
         alive = false;
-        blueLoop = false;
-        orangeLoop = false;
         anim.SetTrigger("Die");
         rb2d.constraints = RigidbodyConstraints2D.None;
         rb2d.gravityScale = 0.0f;
