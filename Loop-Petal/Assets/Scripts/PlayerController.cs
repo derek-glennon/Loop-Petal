@@ -60,10 +60,6 @@ public class PlayerController : MonoBehaviour {
     private Animator currentCheckpoint;
     private Transform emitter;
 
-    private float timer;
-
-    public Slider timerSlider;
-
     //Cheat Codes
     private List<GameObject> Checkpoints;
     List<string> cheatInputs = new List<string>(new string[] { "[1]", "[2]", "[3]", "[4]", "[5]"});
@@ -85,9 +81,6 @@ public class PlayerController : MonoBehaviour {
         bluePressed = false;
         orangePressed = false;
 
-        timer = 0.0f;
-
-
         //Cheat Codes
         Checkpoints = new List<GameObject>();
         Checkpoints.Add(GameObject.Find("Checkpoint"));
@@ -100,12 +93,6 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        Debug.Log(timer);
-        timer += Time.deltaTime;
-        if (timer >= 1.0f)
-            timer = 0.0f;
-        timerSlider.value = timer;
 
         // The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
         onGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
