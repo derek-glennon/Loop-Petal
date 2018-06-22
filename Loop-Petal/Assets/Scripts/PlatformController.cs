@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlatformController : MonoBehaviour {
 
     private PlayerController player;
+    private TimingController Timer;
 
     private GameObject[] BluePlatforms;
     private GameObject[] OrangePlatforms;
@@ -16,6 +17,7 @@ public class PlatformController : MonoBehaviour {
     void Awake() {
 
         player = GameObject.Find("Player").GetComponent<PlayerController>();
+        Timer= GameObject.Find("TimingController").GetComponent<TimingController>();
         BluePlatforms = GameObject.FindGameObjectsWithTag("BluePlatform");
         OrangePlatforms = GameObject.FindGameObjectsWithTag("OrangePlatform");
 
@@ -25,20 +27,20 @@ public class PlatformController : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate () {
 
-        if (player.blueTimer == player.blueTimerInit)
+        if (player.blueActive)
             ActivateBlue();
-        else if (player.blueTimer <= player.blueTimerInit * 0.50f && player.blueActive)
+        else
             DeactivateBlue();
 
-        if (!player.blueActive)
+        if (!player.blueLoop)
             DeactivateBlue();
 
-        if (player.orangeActive && player.orangeTimer == player.orangeTimerInit)
+        if (player.orangeActive && player.orangeLoop)
             RotateOrange();
 
         foreach (GameObject orangeplatform in OrangePlatforms)
         {
-            orangeplatform.GetComponent<Animator>().speed = vertToHoriz.length / player.orangeTimerInit;
+            orangeplatform.GetComponent<Animator>().speed = vertToHoriz.length / 1.0f;
         }
 
     }

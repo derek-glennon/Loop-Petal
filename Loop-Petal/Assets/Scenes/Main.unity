@@ -1278,10 +1278,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6121d36ac3d56c0429f182a9f12ffc8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
   Background: {fileID: 1251449028}
   AnchorPoint: {fileID: 184549440}
   Timeline: {fileID: 645999402}
   Tick: {fileID: 114856578933677128, guid: 80f6cb1db55867940ba417ae959b7917, type: 2}
+  BlueMarker: {fileID: 114065965027024254, guid: 41c9e8123f8c40a468d73bd1c190100d,
+    type: 2}
+  OrangeMarker: {fileID: 114275061466818790, guid: b0cbabf3e2b8df044966c14d140e1b61,
+    type: 2}
+  bufferTimeBlue: 0.4
+  bufferTimeOrange: 0.3
+  detectionBuffer: 0.02
 --- !u!4 &253351821
 Transform:
   m_ObjectHideFlags: 0
@@ -3521,12 +3529,10 @@ MonoBehaviour:
   orangeActive: 0
   orangeLoop: 0
   rotateOrange: 0
-  blueTimer: 0
-  orangeTimer: 0
-  blueTimerInit: 1
-  orangeTimerInit: 1
   speed: 1.5
   jumpForce: 250
+  bluePressed: 0
+  orangePressed: 0
   BlueNote: {fileID: 4129725885355444, guid: 5671991a15429bc41ba6bd74b6ee5075, type: 2}
   OrangeNote: {fileID: 4099445239524622, guid: 7113688176a2e0e458fc9012176a1904, type: 2}
   JumpAudio: {fileID: 0}
@@ -6752,12 +6758,10 @@ MonoBehaviour:
   orangeActive: 0
   orangeLoop: 0
   rotateOrange: 0
-  blueTimer: 0
-  orangeTimer: 0
-  blueTimerInit: 1
-  orangeTimerInit: 0.95
   speed: 1
   jumpForce: 1000
+  bluePressed: 0
+  orangePressed: 0
   BlueNote: {fileID: 0}
   OrangeNote: {fileID: 0}
   JumpAudio: {fileID: 0}

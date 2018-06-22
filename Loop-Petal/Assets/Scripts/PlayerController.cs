@@ -4,10 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
-
-    //The following was done with help from the 2D Platformer Demo
-
-
     [HideInInspector]
     public bool facingRight = true;
     [HideInInspector]
@@ -29,17 +25,12 @@ public class PlayerController : MonoBehaviour {
     [HideInInspector]
     public bool rotateOrange = false;
 
-    public float blueTimer;
-    public float orangeTimer;
-
-    public float blueTimerInit = 0.95f;
-    public float orangeTimerInit = 0.95f;
-
     public float speed = 1.0f;
     public float jumpForce = 1000f;
 
-    private bool bluePressed;
-    private bool orangePressed;
+    public bool bluePressed;
+
+    public bool orangePressed;
 
     public Transform BlueNote;
     public Transform OrangeNote;
@@ -60,6 +51,8 @@ public class PlayerController : MonoBehaviour {
     private Animator currentCheckpoint;
     private Transform emitter;
 
+    private TimingController Timer;
+
     //Cheat Codes
     private List<GameObject> Checkpoints;
     List<string> cheatInputs = new List<string>(new string[] { "[1]", "[2]", "[3]", "[4]", "[5]"});
@@ -75,11 +68,10 @@ public class PlayerController : MonoBehaviour {
         emitter = GameObject.Find("NoteEmitter").GetComponent<Transform>();
         BeatSource = GetComponent<AudioSource>();
 
-        blueTimer = blueTimerInit;
-        orangeTimer = orangeTimerInit;
-
         bluePressed = false;
         orangePressed = false;
+
+        Timer = GameObject.Find("TimingController").GetComponent<TimingController>();
 
         //Cheat Codes
         Checkpoints = new List<GameObject>();
@@ -105,20 +97,6 @@ public class PlayerController : MonoBehaviour {
         if (!alive && anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerNoiseDeath") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95f)
             Respawn();
 
-        //Blue Timer
-        if (blueActive)
-            blueTimer -= Time.deltaTime;
-        else if (!blueActive)
-            blueTimer = blueTimerInit;
-
-        //Orange Timer
-        if (orangeActive)
-            orangeTimer -= Time.deltaTime;
-        else if (!orangeActive)
-            orangeTimer = orangeTimerInit;
-
-
-
         //Cheats to help me test stuff out
         for (int i = 0; i < cheatInputs.Count; i++)
         {
@@ -127,8 +105,6 @@ public class PlayerController : MonoBehaviour {
                 transform.position = Checkpoints[i].transform.position;
             }
         }
-
-
 
 
     }
@@ -158,48 +134,6 @@ public class PlayerController : MonoBehaviour {
             if (horizontal != 0)
                 GetComponent<Transform>().Translate(new Vector3(horizontal * speed, 0.0f, 0.0f) * Time.deltaTime);
 
-            //If 5 is pressed start blue loop
-            //if (Input.GetKeyDown("[5]") == true || Input.GetKeyDown(KeyCode.I) == true)
-            if (Input.GetKeyDown(KeyCode.S) == true || Input.GetKeyDown("1") == true)
-            {
-                if (!blueLoop)
-                    blueLoop = true;
-                else if (blueLoop)
-                    blueLoop = false;
-            }
-
-            //If 4 is pressed start orange loop
-            //if (Input.GetKeyDown("[4]") == true || Input.GetKeyDown(KeyCode.O) == true)
-            if (Input.GetKeyDown(KeyCode.A) == true || Input.GetKeyDown("2") == true)
-            {
-                if (!orangeLoop)
-                    orangeLoop = true;
-                else if (orangeLoop)
-                    orangeLoop = false;
-            }
-
-            if (bluePressed)
-            {
-                bluePressed = false;
-                if (!blueLoop)
-                    blueLoop = true;
-                else if (blueLoop)
-                    blueLoop = false;
-            }
-
-            if (orangePressed)
-            {
-                orangePressed = false;
-                if (!orangeLoop)
-                    orangeLoop = true;
-                else if (orangeLoop)
-                    orangeLoop = false;
-            }
-
-
-
-
-
             //Flip the Player if direction of movement is changed
             if (horizontal > 0 && !facingRight)
                 Flip();
@@ -210,21 +144,6 @@ public class PlayerController : MonoBehaviour {
             if (jump)
                 Jump();
         }
-
-        //If the loops are active, play the notes
-        if (blueLoop && blueTimer == blueTimerInit)
-            EmitBlueNote();
-
-        if (orangeLoop && orangeTimer == orangeTimerInit)
-            EmitOrangeNote();
-
-        //Turning off notes
-        if (blueTimer < 0.0f)
-            blueActive = false;
-
-        if (orangeTimer < 0.0f)
-            orangeActive = false;
-
 
         //Death Animation
         if (!alive)
@@ -278,19 +197,6 @@ public class PlayerController : MonoBehaviour {
 
     }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        //Loop Buttons
-        if (other.gameObject.CompareTag("BlueButton"))
-        {
-            //inBlueRange = false;
-        }
-        if (other.gameObject.CompareTag("OrangeButton"))
-        {
-            //inOrangeRange = false;
-        }
-    }
-
     private void Die()
     {
         alive = false;
@@ -328,12 +234,8 @@ public class PlayerController : MonoBehaviour {
         jump = false;
     }
 
-    private void EmitBlueNote()
+    public void EmitBlueNote()
     {
-        if (blueTimer == blueTimerInit)
-        {
-            blueActive = true;
-
             if (isMoving)
             {
                 mouthAnim.SetTrigger("BeatBlue");
@@ -345,18 +247,12 @@ public class PlayerController : MonoBehaviour {
             clone = Instantiate(BlueNote, emitter.position, Quaternion.identity) as Transform;
             BeatSource.clip = BlueAudio;
             BeatSource.Play();
-        }
 
     }
 
 
-    private void EmitOrangeNote()
+    public void EmitOrangeNote()
     {
-
-        if (orangeTimer == orangeTimerInit)
-        {
-            orangeActive = true;
-            rotateOrange = true;
 
             if (isMoving)
             {
@@ -369,7 +265,6 @@ public class PlayerController : MonoBehaviour {
             clone = Instantiate(OrangeNote, emitter.position, Quaternion.identity) as Transform;
             BeatSource.clip = OrangeAudio;
             BeatSource.Play();
-        }
     }
 
 }

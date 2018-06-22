@@ -11,6 +11,8 @@ TagManager:
   - OrangePlatform
   - BlueButton
   - OrangeButton
+  - BlueMarker
+  - OrangeMarker
   layers:
   - Default
   - TransparentFX
