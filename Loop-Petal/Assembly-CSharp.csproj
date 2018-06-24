@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BeatBar.cs" />
     <Compile Include="Assets\Scripts\BeatController.cs" />
     <Compile Include="Assets\Scripts\BeatMover.cs" />
     <Compile Include="Assets\Scripts\BlueBeatController.cs" />
@@ -71,7 +72,7 @@
     <Compile Include="Assets\Scripts\NoteEmitter.cs" />
     <Compile Include="Assets\Scripts\Platform.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\TimingController.cs" />
+    <Compile Include="Assets\Scripts\TimelineController.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>E:/Unity Projects/Loop-Petal/Loop-Petal/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

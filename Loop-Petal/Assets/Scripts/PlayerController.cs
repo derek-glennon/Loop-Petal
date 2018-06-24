@@ -51,8 +51,6 @@ public class PlayerController : MonoBehaviour {
     private Animator currentCheckpoint;
     private Transform emitter;
 
-    private TimingController Timer;
-
     //Cheat Codes
     private List<GameObject> Checkpoints;
     List<string> cheatInputs = new List<string>(new string[] { "[1]", "[2]", "[3]", "[4]", "[5]"});
@@ -70,8 +68,6 @@ public class PlayerController : MonoBehaviour {
 
         bluePressed = false;
         orangePressed = false;
-
-        Timer = GameObject.Find("TimingController").GetComponent<TimingController>();
 
         //Cheat Codes
         Checkpoints = new List<GameObject>();

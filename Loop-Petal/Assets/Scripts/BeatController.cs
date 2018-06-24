@@ -3,12 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum BeatType
+{
+    None = 0,
+    Blue = 1,
+    Orange = 2
+}
+
 public class BeatController : MonoBehaviour {
     private AudioSource BeatSource;
     public AudioClip BeatClip;
+    public BeatType beatType = BeatType.None;
     public bool isPlaying;
-    public float timeInterval = 1f;
-    private float timePassed = 0f;
+    public bool playedThisFrame = false;
+    public float beatInterval = 1f;
+    public float timePassed = 0f;
     private float startTime;
 
     // Use this for initialization
@@ -20,11 +29,15 @@ public class BeatController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         timePassed += Time.deltaTime;
-        if (isPlaying && timePassed >= timeInterval)
+        if (isPlaying && timePassed >= beatInterval)
         {
             timePassed = 0f;
             BeatSource.Play();
             ActivateObstacles();
+            playedThisFrame = true;
+        } else
+        {
+            playedThisFrame = false;
         }
 	}
 
@@ -36,11 +49,24 @@ public class BeatController : MonoBehaviour {
         startTime = (float)Math.Round(Time.time*2)/2;
 
         //set time passed 
-        timePassed = Time.time > startTime ? Time.time - startTime : timeInterval - (startTime - Time.time);
+        timePassed = Time.time > startTime ? Time.time - startTime : beatInterval - (startTime - Time.time);
     }
 
     protected virtual void ActivateObstacles() {
         //do things on the beat here
-        Debug.Log("parent");
+        Debug.Log("parent beat controller");
+    }
+
+    public BeatType JustPlayed ()
+    {
+        //return the beat color if it was played this frame
+        if (playedThisFrame)
+        {
+            return beatType;
+        }
+        else
+        {
+            return BeatType.None;
+        }
     }
 }
