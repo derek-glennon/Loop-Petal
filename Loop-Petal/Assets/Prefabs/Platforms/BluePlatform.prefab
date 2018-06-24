@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212768913335828312}
   - component: {fileID: 61595953323907304}
   - component: {fileID: 95621334296488810}
+  - component: {fileID: 114577039962020266}
   m_Layer: 9
   m_Name: BluePlatform
   m_TagString: BluePlatform
@@ -85,6 +86,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114577039962020266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1873447216430878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb094442de1f06a4a9242d7e4507b8c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 1
 --- !u!212 &212768913335828312
 SpriteRenderer:
   m_ObjectHideFlags: 1

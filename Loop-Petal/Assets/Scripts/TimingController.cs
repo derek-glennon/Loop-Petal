@@ -40,9 +40,12 @@ public class TimingController : MonoBehaviour {
 
     // Use this for initialization
     void Awake () {
+        timer = 0.0f;
 
-        bufferTimeBlue = 0.5f;
-        bufferTimeOrange = 0.3f;
+
+
+
+
 
         float div = maxTimerTime / DeltaTime;
         numberTicks = (int) div;//+1 to include 0.0f
@@ -54,8 +57,6 @@ public class TimingController : MonoBehaviour {
         fps = 1.0f / Time.deltaTime;
 
         player = GameObject.Find("Player").GetComponent<PlayerController>();
-
-        timer = 0.0f;
 
         //Set Up the tick positions in seconds
         float counter = firstTickPos;
@@ -86,11 +87,10 @@ public class TimingController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        //Update timer and reset if it gets past the end of the background
+        //update timer
         timer += Time.deltaTime;
-        if (timer >= maxTimerTime)
-            timer = 0.0f;
+        
+
 
         //Update Timeline
         Timeline.rectTransform.anchoredPosition = new Vector2(Timeline.rectTransform.anchoredPosition.x + (velocity * Time.deltaTime), Timeline.rectTransform.anchoredPosition.y);
