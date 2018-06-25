@@ -181,15 +181,15 @@ public class PlayerController : MonoBehaviour {
         }
 
 
-        //Loop Buttons
-        if (other.gameObject.CompareTag("BlueButton"))
-        {
-            bluePressed = true;
-        }
-        if (other.gameObject.CompareTag("OrangeButton"))
-        {
-            orangePressed = true;
-        }
+        ////Loop Buttons
+        //if (other.gameObject.CompareTag("BlueButton"))
+        //{
+        //    bluePressed = true;
+        //}
+        //if (other.gameObject.CompareTag("OrangeButton"))
+        //{
+        //    orangePressed = true;
+        //}
 
     }
 
@@ -230,37 +230,37 @@ public class PlayerController : MonoBehaviour {
         jump = false;
     }
 
-    public void EmitBlueNote()
-    {
-            if (isMoving)
-            {
-                mouthAnim.SetTrigger("BeatBlue");
-            }
-            else
-                anim.SetTrigger("BeatBlue");
+    //public void EmitBlueNote()
+    //{
+    //        if (isMoving)
+    //        {
+    //            mouthAnim.SetTrigger("BeatBlue");
+    //        }
+    //        else
+    //            anim.SetTrigger("BeatBlue");
 
-            Transform clone;
-            clone = Instantiate(BlueNote, emitter.position, Quaternion.identity) as Transform;
-            BeatSource.clip = BlueAudio;
-            BeatSource.Play();
+    //        Transform clone;
+    //        clone = Instantiate(BlueNote, emitter.position, Quaternion.identity) as Transform;
+    //        BeatSource.clip = BlueAudio;
+    //        BeatSource.Play();
 
-    }
+    //}
 
 
-    public void EmitOrangeNote()
-    {
+    //public void EmitOrangeNote()
+    //{
 
-            if (isMoving)
-            {
-                mouthAnim.SetTrigger("BeatBlue");
-            }
-            else
-                anim.SetTrigger("BeatBlue");
+    //        if (isMoving)
+    //        {
+    //            mouthAnim.SetTrigger("BeatBlue");
+    //        }
+    //        else
+    //            anim.SetTrigger("BeatBlue");
 
-            Transform clone;
-            clone = Instantiate(OrangeNote, emitter.position, Quaternion.identity) as Transform;
-            BeatSource.clip = OrangeAudio;
-            BeatSource.Play();
-    }
+    //        Transform clone;
+    //        clone = Instantiate(OrangeNote, emitter.position, Quaternion.identity) as Transform;
+    //        BeatSource.clip = OrangeAudio;
+    //        BeatSource.Play();
+    //}
 
 }

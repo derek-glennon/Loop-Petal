@@ -21,11 +21,17 @@ public class ButtonController : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && isPressed == false)
         {
             animator.SetTrigger("Pressed");
             isPressed = true;
             beatController.SetPlaying();
+        }
+        else if (isPressed == true)
+        {
+            animator.SetTrigger("Pressed");
+            isPressed = false;
+            beatController.StopPlaying();
         }
     }
 

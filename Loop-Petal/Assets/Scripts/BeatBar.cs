@@ -25,5 +25,9 @@ public class BeatBar : MonoBehaviour {
                 rectTransform.sizeDelta.y
                 );
         }
+        else if (!beatController.isPlaying)
+        {
+            rectTransform.sizeDelta = new Vector2(minSize,rectTransform.sizeDelta.y);
+        }
 	}
 }

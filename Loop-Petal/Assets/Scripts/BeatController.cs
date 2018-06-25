@@ -52,6 +52,15 @@ public class BeatController : MonoBehaviour {
         timePassed = Time.time > startTime ? Time.time - startTime : beatInterval - (startTime - Time.time);
     }
 
+    public void StopPlaying()
+    {
+        isPlaying = false;
+
+        startTime = 0.0f;
+
+        timePassed = 0.0f;
+    }
+
     protected virtual void ActivateObstacles() {
         //do things on the beat here
         Debug.Log("parent beat controller");
