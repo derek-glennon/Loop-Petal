@@ -51,6 +51,8 @@ public class PlayerController : MonoBehaviour {
     private Animator currentCheckpoint;
     private Transform emitter;
 
+    private CircleCollider2D collider;
+
     //Cheat Codes
     private List<GameObject> Checkpoints;
     List<string> cheatInputs = new List<string>(new string[] { "1", "2", "3", "4", "5"});
@@ -65,6 +67,8 @@ public class PlayerController : MonoBehaviour {
         rb2d = GetComponent<Rigidbody2D>();
         emitter = GameObject.Find("NoteEmitter").GetComponent<Transform>();
         BeatSource = GetComponent<AudioSource>();
+
+        collider = GetComponent<CircleCollider2D>();
 
         bluePressed = false;
         orangePressed = false;
@@ -200,6 +204,7 @@ public class PlayerController : MonoBehaviour {
         rb2d.constraints = RigidbodyConstraints2D.None;
         rb2d.gravityScale = 0.0f;
         rb2d.velocity = Vector3.zero;
+        collider.enabled = false;
     }
 
     private void Respawn()
@@ -209,6 +214,7 @@ public class PlayerController : MonoBehaviour {
         transform.rotation = Quaternion.identity;
         rb2d.gravityScale = 1.0f;
         transform.position = checkpoint.position;
+        collider.enabled = true;
     }
 
     private void Flip()

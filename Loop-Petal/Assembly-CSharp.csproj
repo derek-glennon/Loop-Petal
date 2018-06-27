@@ -61,18 +61,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Beat Controllers\BeatController.cs" />
+    <Compile Include="Assets\Scripts\Beat Controllers\BlueBeatController.cs" />
+    <Compile Include="Assets\Scripts\Beat Controllers\GreenBeatController.cs" />
+    <Compile Include="Assets\Scripts\Beat Controllers\OrangeBeatController.cs" />
     <Compile Include="Assets\Scripts\BeatBar.cs" />
-    <Compile Include="Assets\Scripts\BeatController.cs" />
     <Compile Include="Assets\Scripts\BeatMover.cs" />
-    <Compile Include="Assets\Scripts\BlueBeatController.cs" />
-    <Compile Include="Assets\Scripts\BluePlatform.cs" />
     <Compile Include="Assets\Scripts\ButtonController.cs" />
     <Compile Include="Assets\Scripts\CameraFollowMine.cs" />
     <Compile Include="Assets\Scripts\CheckpointController.cs" />
     <Compile Include="Assets\Scripts\NoteEmitter.cs" />
-    <Compile Include="Assets\Scripts\OrangeBeatController.cs" />
-    <Compile Include="Assets\Scripts\OrangePlatform.cs" />
-    <Compile Include="Assets\Scripts\Platform.cs" />
+    <Compile Include="Assets\Scripts\Platforms\BluePlatform.cs" />
+    <Compile Include="Assets\Scripts\Platforms\GreenPlatform.cs" />
+    <Compile Include="Assets\Scripts\Platforms\OrangePlatform.cs" />
+    <Compile Include="Assets\Scripts\Platforms\Platform.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\TimelineController.cs" />
     <None Include="Assets\BayatGames\Free Platform Game Assets\Readme.txt" />
