@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Beat Controllers\OrangeBeatController.cs" />
     <Compile Include="Assets\Scripts\BeatBar.cs" />
     <Compile Include="Assets\Scripts\BeatMover.cs" />
+    <Compile Include="Assets\Scripts\BlueSpawn.cs" />
     <Compile Include="Assets\Scripts\ButtonController.cs" />
     <Compile Include="Assets\Scripts\CameraFollowMine.cs" />
     <Compile Include="Assets\Scripts\CheckpointController.cs" />

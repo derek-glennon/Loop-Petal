@@ -13,7 +13,7 @@ public class GreenPlatform : Platform {
 
     public void Awake()
     {
-        pushForce = 500000f;
+        pushForce = 900000f;
         speed = 1f;
 
 

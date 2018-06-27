@@ -15,6 +15,7 @@ TagManager:
   - OrangeMarker
   - GreenButton
   - GreenPlatform
+  - BlueSpawn
   layers:
   - Default
   - TransparentFX

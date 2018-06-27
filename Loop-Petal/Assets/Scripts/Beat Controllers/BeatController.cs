@@ -19,7 +19,9 @@ public class BeatController : MonoBehaviour {
     public bool playedThisFrame = false;
     public float beatInterval = 1f;
     public float timePassed = 0f;
+    public bool oneBeat;
     private float startTime;
+    
 
     // Use this for initialization
     void Start () {
@@ -33,7 +35,8 @@ public class BeatController : MonoBehaviour {
         if (isPlaying && timePassed >= beatInterval)
         {
             timePassed = 0f;
-            BeatSource.Play();
+            if (oneBeat)
+                BeatSource.Play();
             ActivateObstacles();
             playedThisFrame = true;
         } else
@@ -51,6 +54,9 @@ public class BeatController : MonoBehaviour {
 
         //set time passed 
         timePassed = Time.time > startTime ? Time.time - startTime : beatInterval - (startTime - Time.time);
+
+        if (!oneBeat)
+            BeatSource.Play();
     }
 
     public void StopPlaying()
@@ -62,6 +68,9 @@ public class BeatController : MonoBehaviour {
         timePassed = 0.0f;
 
         DeactivateObstacles();
+
+        if (!oneBeat)
+            BeatSource.Stop();
     }
 
     protected virtual void ActivateObstacles() {
