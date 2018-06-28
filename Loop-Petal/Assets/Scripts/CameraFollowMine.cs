@@ -11,14 +11,10 @@ public class CameraFollowMine : MonoBehaviour {
     public float smoothTimeY = 0.05f;
     public float smoothTimeX = 0.05f;
 
-    private Transform trans;
-
     // Use this for initialization
     void Awake () {
 
         player = GameObject.Find("Player").transform;
-
-        trans = GetComponent<Transform>();
 
     }
 

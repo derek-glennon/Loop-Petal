@@ -23,9 +23,8 @@ public class NoteEmitter : MonoBehaviour {
             {
                 if (!player.blueActive)
                 {
-                    Debug.Log("Here!");
-                    Transform clone;
-                    clone = Instantiate(BlueNote, transform.position, Quaternion.identity) as Transform;
+                    //Transform clone;
+                    //clone = Instantiate(BlueNote, transform.position, Quaternion.identity) as Transform;
                 }
 
             }

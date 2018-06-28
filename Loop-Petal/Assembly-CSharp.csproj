@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\CheckpointController.cs" />
     <Compile Include="Assets\Scripts\NoteEmitter.cs" />
     <Compile Include="Assets\Scripts\Platforms\BluePlatform.cs" />
+    <Compile Include="Assets\Scripts\Platforms\DottedPlatform.cs" />
     <Compile Include="Assets\Scripts\Platforms\GreenPlatform.cs" />
     <Compile Include="Assets\Scripts\Platforms\OrangePlatform.cs" />
     <Compile Include="Assets\Scripts\Platforms\Platform.cs" />

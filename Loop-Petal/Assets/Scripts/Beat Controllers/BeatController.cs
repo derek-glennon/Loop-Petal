@@ -81,7 +81,7 @@ public class BeatController : MonoBehaviour {
     //Use to turn things off if that is needed for the platform
     protected virtual void DeactivateObstacles()
     {
-        Debug.Log("parent beat controller");
+        //Debug.Log("parent beat controller");
 
     }
 

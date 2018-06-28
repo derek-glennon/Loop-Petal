@@ -15,7 +15,7 @@ public class TimelineController : MonoBehaviour {
     public Image Background;
     public Image Timeline;
 
-    private Object tickPrefab;
+    //private Object tickPrefab;
     private GameObject[] beatControllers;
 
     private float velocity;
@@ -58,11 +58,11 @@ public class TimelineController : MonoBehaviour {
     private void SpawnTick()
     {
         //spawn new tick at start of timeline
-        GameObject Tick = Instantiate(tickPrefab, TimelineStartPoint.transform.position, TimelineStartPoint.transform.rotation) as GameObject;
+        //GameObject Tick = Instantiate(tickPrefab, TimelineStartPoint.transform.position, TimelineStartPoint.transform.rotation) as GameObject;
         //set velocity
-        Tick.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity, 0f);
+        //Tick.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity, 0f);
         
-        var beatsPlaying = new List<BeatType>(); //list of beats playing on this tick
+        //var beatsPlaying = new List<BeatType>(); //list of beats playing on this tick
         foreach (GameObject beatController in beatControllers)
         {
             // fill beatsPlaying list

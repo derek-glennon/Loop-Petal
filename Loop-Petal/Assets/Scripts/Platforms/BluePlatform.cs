@@ -14,6 +14,7 @@ public class BluePlatform : Platform {
     private Rigidbody2D rb2d;
     private float timePassed;
     private bool turnOff;
+    private bool inDeath;
 
     public void Awake()
     {
@@ -31,6 +32,8 @@ public class BluePlatform : Platform {
 
         isActive = false;
 
+        inDeath = false;
+
         timeAlive = 0.0f;
 
         //Just remove this line eventually
@@ -40,6 +43,7 @@ public class BluePlatform : Platform {
     public override void Activate()
     {
         alive = true;
+        inDeath = false;
         //isActive = !isActive;
         isActive = true;
         transform.position = startPos;
@@ -103,17 +107,21 @@ public class BluePlatform : Platform {
                 rb2d.gravityScale = 1.0f;
             }
         }
+
+        if (rb2d.velocity == Vector2.zero && inDeath)
+            alive = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Death") && turnOff)
+        if (other.gameObject.CompareTag("Death") )//&& turnOff)
         {
+            inDeath = true;
             turnOff = false;
-            alive = false;
+            //alive = false;
             rb2d.gravityScale = 0.0f;
-            rb2d.drag = 10f;
-            rb2d.angularDrag = 10f;
+            rb2d.drag = 1f;
+            rb2d.angularDrag = 1f;
         }
     }
 }

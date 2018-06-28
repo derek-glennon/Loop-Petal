@@ -6,14 +6,11 @@ public class CheckpointController : MonoBehaviour {
 
     private Animator anim;
 
-    private PlayerController player;
-
     private bool played = false;
 
 	// Use this for initialization
 	void Awake () {
 
-        player = GameObject.Find("Player").GetComponent<PlayerController>();
         anim = GetComponent<Animator>();
 		
 	}
