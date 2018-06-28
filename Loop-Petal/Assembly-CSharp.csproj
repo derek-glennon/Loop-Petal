@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\Platforms\Platform.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\TimelineController.cs" />
+    <Compile Include="Assets\Scripts\TimingController.cs" />
     <None Include="Assets\BayatGames\Free Platform Game Assets\Readme.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Loop_Petal/Loop-Petal/Loop-Petal/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
