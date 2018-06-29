@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour {
 
     //Cheat Codes
     private List<GameObject> Checkpoints;
-    List<string> cheatInputs = new List<string>(new string[] { "1", "2", "3", "4", "5"});
+    List<string> cheatInputs = new List<string>(new string[] { "1", "2", "3", "4", "5", "6", "7"});
 
 
     // Use this for initialization

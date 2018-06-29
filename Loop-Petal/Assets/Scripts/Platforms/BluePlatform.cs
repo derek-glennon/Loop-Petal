@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BluePlatform : Platform {
+    [HideInInspector]
     public bool isActive;
-    public float holdTime = 0.5f;
+    [HideInInspector]
+    public bool alive;
+
+    public float holdTime;
     public int numberActive;
     public float timeAlive;
-    public bool alive;
+    
 
     private Vector3 startPos;
     private Quaternion startRot;
@@ -18,6 +22,8 @@ public class BluePlatform : Platform {
 
     public void Awake()
     {
+        holdTime = 0.3f;
+
         //Not sure why but Unity freaked out when I didn't have these here even though they are in Platform's Start function?
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();

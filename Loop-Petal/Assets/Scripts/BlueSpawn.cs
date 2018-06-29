@@ -5,17 +5,23 @@ using System.Linq;
 
 public class BlueSpawn : MonoBehaviour {
     public int numberActive;
+    public bool alternating;
+    public bool altSpawn;
+    private bool altSpawnInit;
+    [HideInInspector]
     public bool isActive;
-    private SpriteRenderer spriteRenderer;
-
     public GameObject BluePlatform;
     public BluePlatform[] bluePlatforms;
+
+    private SpriteRenderer spriteRenderer;
 
 	// Use this for initialization
 	void Awake () {
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = false;
+
+        altSpawnInit = altSpawn;
 
         for (int i = 0; i < numberActive; i++)
         {
@@ -27,13 +33,13 @@ public class BlueSpawn : MonoBehaviour {
 		
 	}
 
-    public void Spawn()
+    public void CreatePlatform()
     {
         //There is probs a better way to do this
 
         //Find how many are currently active
         int currentlyActive = 0;
-        foreach(BluePlatform bluePlatform in bluePlatforms)
+        foreach (BluePlatform bluePlatform in bluePlatforms)
         {
             if (bluePlatform.alive)
                 currentlyActive++;
@@ -68,8 +74,30 @@ public class BlueSpawn : MonoBehaviour {
         }
     }
 
+    public void Spawn()
+    {
+        if (!alternating)
+        {
+            CreatePlatform();
+        }
+        else if (alternating)
+        {
+            if (altSpawn == true)
+            {
+                CreatePlatform();
+                altSpawn = false;
+            }
+            else
+            {
+                altSpawn = true;
+            }
+        }
+        
+    }
+
     public void Deactivate()
     {
+        altSpawn = altSpawnInit;
         foreach(BluePlatform bluePlatform in bluePlatforms)
         {
             bluePlatform.Deactivate();

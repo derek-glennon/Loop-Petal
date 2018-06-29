@@ -17,4 +17,12 @@ public class GreenBeatController : BeatController {
             greenPlatform.GetComponent<GreenPlatform>().Activate();
         }
     }
+
+    protected override void DeactivateObstacles()
+    {
+        foreach (GameObject greenPlatform in GreenPlatforms)
+        {
+            greenPlatform.GetComponent<GreenPlatform>().Deactivate();
+        }
+    }
 }
