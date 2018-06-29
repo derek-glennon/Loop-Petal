@@ -22,6 +22,9 @@ public class BeatController : MonoBehaviour {
     public bool oneBeat;
     private float startTime;
     private float nextTime;
+
+    private float nextOffBeat;
+    private float timePassedOffBeat;
     
 
     // Use this for initialization
@@ -33,11 +36,13 @@ public class BeatController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (isPlaying)
+        {
             timePassed += Time.deltaTime;
+
+        }
 
         if (isPlaying && Time.time >= nextTime)//timePassed >= beatInterval)
         {
-            Debug.Log(Time.time);
             //Debug.Log(timePassed);
             timePassed = 0.0f;
             float currentTime = (float)Math.Round(Time.time * 2.0f) / 2.0f;
@@ -55,19 +60,16 @@ public class BeatController : MonoBehaviour {
     public void SetPlaying()
     {
         isPlaying = true;
-        //Debug.Log(Time.time);
 
         //round current time to nearest half second
         startTime = (float)Math.Round(Time.time*2.0f)/2.0f;
 
-        //Debug.Log(startTime);
-
         nextTime = Time.time < startTime ? startTime : startTime + beatInterval;
+
+        //nextOffBeat = nextTime + 0.5f;
 
         //set time passed 
         timePassed = Time.time > startTime ? Time.time - startTime : beatInterval - (startTime - Time.time);
-
-        //Debug.Log(timePassed);
 
         if (!oneBeat)
             BeatSource.Play();

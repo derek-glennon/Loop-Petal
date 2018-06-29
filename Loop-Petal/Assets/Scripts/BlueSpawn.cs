@@ -6,12 +6,16 @@ using System.Linq;
 public class BlueSpawn : MonoBehaviour {
     public int numberActive;
     public bool isActive;
+    private SpriteRenderer spriteRenderer;
 
     public GameObject BluePlatform;
     public BluePlatform[] bluePlatforms;
 
 	// Use this for initialization
 	void Awake () {
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.enabled = false;
 
         for (int i = 0; i < numberActive; i++)
         {
