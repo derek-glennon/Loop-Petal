@@ -1,6 +1,6 @@
-WebGL
+WindowsStandalone
 PlayerPath?
-D:/Loop_Petal/Loop-Petal/Loop-Petal/Builds/WebBuild2
+D:/Loop_Petal/Loop-Petal/Loop-Petal/Builds/PCBuild2/PCBuild2.exe
 SceneListBegin?
 Assets/Scenes/Main.unity
 SceneListEnd?
@@ -48,6 +48,7 @@ c63db43c730fa2cbb8ca07de15898cb6 UnityEngine.UI.dll:UnityEngine.UI.Toggle
 f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 86d36c43c53541d667100dc90b89cfba UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 1b8c02d0aa82fbf036a2b9b2d713eec3 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
+c63fac38ecc691d72ef3987461a2df1a Assembly-CSharp.dll:.BluePlatform
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -116,6 +117,7 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
+2ea1ffbd0e92b224ce1320be7be943f9 Assembly-CSharp.dll:.OrangePlatform
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 60b2bb652410a5867a5ab9a01cd38461 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -130,6 +132,9 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 3f32f08a64daf40b09ed864d96fe3840 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 73843688b51256aed059f049c540bca8 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
+e9a16dd31fd505f8b00e02669d3f9021 Assembly-CSharp.dll:.BlueBeatController
+9845ab7dbb842da2d5f2db13a05b1cf4 Assembly-CSharp.dll:.BeatBar
+4b1bfca13f2d2e111e0fdab0cc8cf9b1 Assembly-CSharp.dll:.TimelineController
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 f02726adeff0a3ec5905565234b372da UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
 64eb32cc721b1cc68a91ed57461e188c UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
@@ -142,20 +147,21 @@ e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 67a5f2c97205d2e41a8ed7c7ce898f6e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
 67a5f2c97205d2e41a8ed7c7ce898f6e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
 49ac98cbda51d5c9d81789fb5186a4b2 Assembly-CSharp.dll:.PlayerController
+e9a16dd31fd505f8b00e02669d3f9021 Assembly-CSharp.dll:.OrangeBeatController
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
+e9a16dd31fd505f8b00e02669d3f9021 Assembly-CSharp.dll:.BeatController
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Platform
+e81d119457d996c2c1e63b48731d1d5d Assembly-CSharp.dll:.ButtonController
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CheckpointController
 b4fef63d9e9c86dcde848421a4af7624 Assembly-CSharp.dll:.BeatMover
-9845ab7dbb842da2d5f2db13a05b1cf4 Assembly-CSharp.dll:.BeatBar
-2ea1ffbd0e92b224ce1320be7be943f9 Assembly-CSharp.dll:.OrangePlatform
-4b1bfca13f2d2e111e0fdab0cc8cf9b1 Assembly-CSharp.dll:.TimelineController
-ff265bc4d0ff2073eb62670f6a14d759 Assembly-CSharp.dll:.OrangeBeatController
-ff265bc4d0ff2073eb62670f6a14d759 Assembly-CSharp.dll:.BeatController
-e81d119457d996c2c1e63b48731d1d5d Assembly-CSharp.dll:.ButtonController
-ff265bc4d0ff2073eb62670f6a14d759 Assembly-CSharp.dll:.BlueBeatController
-47dc1bea2bbc4503384780f03b4e532f Assembly-CSharp.dll:.BluePlatform
+e9a16dd31fd505f8b00e02669d3f9021 Assembly-CSharp.dll:.GreenBeatController
+415aee7eb789b73babe904d1c64766ca Assembly-CSharp.dll:.GreenPlatform
+1aaf86976bfd03b542e99d5a4207c743 Assembly-CSharp.dll:.BlueSpawn
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.DottedPlatform
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.MetronomeController
+e81d119457d996c2c1e63b48731d1d5d Assembly-CSharp.dll:.MarkerController
