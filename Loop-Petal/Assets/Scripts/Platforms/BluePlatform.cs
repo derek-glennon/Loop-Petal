@@ -11,7 +11,6 @@ public class BluePlatform : Platform {
     public float holdTime;
     public int numberActive;
     public float timeAlive;
-    
 
     private Vector3 startPos;
     private Quaternion startRot;

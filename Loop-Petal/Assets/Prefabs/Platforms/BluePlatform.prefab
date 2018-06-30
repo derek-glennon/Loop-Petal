@@ -119,8 +119,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
+  alive: 0
   holdTime: 0.5
   numberActive: 0
+  timeAlive: 0
 --- !u!212 &212768913335828312
 SpriteRenderer:
   m_ObjectHideFlags: 1

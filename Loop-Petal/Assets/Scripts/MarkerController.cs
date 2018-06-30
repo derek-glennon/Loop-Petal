@@ -10,10 +10,12 @@ public class MarkerController : MonoBehaviour {
 
     public GameObject beatObject;
     private BeatController beatController;
+    private ParticleSystem particleSystem;
 
 	// Use this for initialization
 	void Awake() {
         beatController = beatObject.GetComponent<BeatController>();
+        particleSystem = GetComponent<ParticleSystem>();
         onScreen = false;
         image = GetComponent<Image>();
         color = image.color;
@@ -40,4 +42,9 @@ public class MarkerController : MonoBehaviour {
             onScreen = false;
         }
 	}
+
+    public void Play()
+    {
+        this.particleSystem.Play();
+    }
 }

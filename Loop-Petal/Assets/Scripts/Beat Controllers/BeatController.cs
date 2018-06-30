@@ -25,12 +25,15 @@ public class BeatController : MonoBehaviour {
 
     private float nextOffBeat;
     private float timePassedOffBeat;
+    public GameObject beatUI;
+    private MarkerController beatMarker;
     
 
     // Use this for initialization
     void Start () {
         BeatSource = this.GetComponent<AudioSource>();
         BeatSource.clip = BeatClip;
+        beatMarker = beatUI.GetComponent<MarkerController>();
 	}
 	
 	// Update is called once per frame
@@ -50,6 +53,7 @@ public class BeatController : MonoBehaviour {
             if (oneBeat)
                 BeatSource.Play();
             ActivateObstacles();
+            beatMarker.Play();
             playedThisFrame = true;
         } else
         {
