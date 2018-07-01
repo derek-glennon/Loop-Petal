@@ -2589,14 +2589,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a897cd891fec81b47bf52597d7746135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BeatSource: {fileID: 0}
+  beatUI: {fileID: 816821888}
+  beatMarker: {fileID: 0}
   BeatClip: {fileID: 8300000, guid: 8782ef85e7b171045b279bc9753b27e1, type: 3}
   beatType: 0
   isPlaying: 0
   playedThisFrame: 0
   beatInterval: 1
   timePassed: 0
-  oneBeat: 1
-  beatUI: {fileID: 816821888}
+  startTime: 0
+  nextTime: 0
 --- !u!1001 &385254872
 Prefab:
   m_ObjectHideFlags: 0
@@ -10340,14 +10343,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 972a4faaa58407a468aa96017e5dcc68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BeatSource: {fileID: 0}
+  beatUI: {fileID: 1258922658}
+  beatMarker: {fileID: 0}
   BeatClip: {fileID: 8300000, guid: a4c3fa311f9b76b499fc98e653790ef0, type: 3}
   beatType: 0
   isPlaying: 0
   playedThisFrame: 0
   beatInterval: 1
   timePassed: 0
-  oneBeat: 0
-  beatUI: {fileID: 1258922658}
+  startTime: 0
+  nextTime: 0
+  intervalsPerBeat: 2
 --- !u!82 &893107704
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10361,7 +10368,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -22671,14 +22678,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6894796bdeebab744969345cc5c21e50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BeatSource: {fileID: 0}
+  beatUI: {fileID: 1628383956}
+  beatMarker: {fileID: 0}
   BeatClip: {fileID: 8300000, guid: b2a7cc980b35d094aba5ed0291f30ba5, type: 3}
   beatType: 0
   isPlaying: 0
   playedThisFrame: 0
   beatInterval: 1
   timePassed: 0
-  oneBeat: 1
-  beatUI: {fileID: 1628383956}
+  startTime: 0
+  nextTime: 0
 --- !u!82 &1648577393
 AudioSource:
   m_ObjectHideFlags: 0

@@ -12,21 +12,24 @@ public enum BeatType
 }
 
 public class BeatController : MonoBehaviour {
-    private AudioSource BeatSource;
+    [HideInInspector]
+    public AudioSource BeatSource;
+    public GameObject beatUI;
+    [HideInInspector]
+    public MarkerController beatMarker;
+
     public AudioClip BeatClip;
     public BeatType beatType = BeatType.None;
     public bool isPlaying;
     public bool playedThisFrame = false;
     public float beatInterval = 1f;
     public float timePassed = 0f;
-    public bool oneBeat;
-    private float startTime;
-    private float nextTime;
+
+    [HideInInspector]
+    public float startTime, nextTime;
 
     private float nextOffBeat;
     private float timePassedOffBeat;
-    public GameObject beatUI;
-    private MarkerController beatMarker;
     
 
     // Use this for initialization
@@ -41,25 +44,27 @@ public class BeatController : MonoBehaviour {
         if (isPlaying)
         {
             timePassed += Time.deltaTime;
-
         }
-
-        if (isPlaying && Time.time >= nextTime)//timePassed >= beatInterval)
+        //if beat interval is hit
+        if (isPlaying && Time.time >= nextTime)
         {
-            //Debug.Log(timePassed);
-            timePassed = 0.0f;
-            float currentTime = (float)Math.Round(Time.time * 2.0f) / 2.0f;
-            nextTime = currentTime + beatInterval;
-            if (oneBeat)
-                BeatSource.Play();
-            ActivateObstacles();
-            beatMarker.Play();
+            PlayBeat();
             playedThisFrame = true;
         } else
         {
             playedThisFrame = false;
         }
 	}
+
+    protected virtual void PlayBeat()
+    {
+        timePassed = 0.0f;
+        float currentTime = (float)Math.Round(Time.time * 2.0f) / 2.0f;
+        nextTime = currentTime + beatInterval;
+        BeatSource.Play();
+        beatMarker.Play();
+        ActivateObstacles();
+    }
 
     public void SetPlaying()
     {
@@ -74,9 +79,6 @@ public class BeatController : MonoBehaviour {
 
         //set time passed 
         timePassed = Time.time > startTime ? Time.time - startTime : beatInterval - (startTime - Time.time);
-
-        if (!oneBeat)
-            BeatSource.Play();
     }
 
     public void StopPlaying()
@@ -89,8 +91,7 @@ public class BeatController : MonoBehaviour {
 
         DeactivateObstacles();
 
-        if (!oneBeat)
-            BeatSource.Stop();
+        BeatSource.Stop();
     }
 
     protected virtual void ActivateObstacles() {
