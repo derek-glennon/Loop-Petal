@@ -1880,8 +1880,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1288980125
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6725775159a5a5b4e9d93f0313d51a96, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3642,7 +3642,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4641963048361088, guid: b17773c472376bd46af9d1b6e7d5c420, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 23.1
+      value: 23.3
       objectReference: {fileID: 0}
     - target: {fileID: 4641963048361088, guid: b17773c472376bd46af9d1b6e7d5c420, type: 2}
       propertyPath: m_LocalPosition.y
@@ -4851,6 +4851,76 @@ Transform:
   m_PrefabParentObject: {fileID: 4692689896312874, guid: 2752960b13d6b264abd4290e5782b633,
     type: 2}
   m_PrefabInternal: {fileID: 796325614}
+--- !u!1001 &812855813
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 871718322}
+    m_Modifications:
+    - target: {fileID: 4698888904463426, guid: 257a58004b0f5c744974622669a03c75, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -575.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698888904463426, guid: 257a58004b0f5c744974622669a03c75, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -344.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698888904463426, guid: 257a58004b0f5c744974622669a03c75, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698888904463426, guid: 257a58004b0f5c744974622669a03c75, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698888904463426, guid: 257a58004b0f5c744974622669a03c75, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698888904463426, guid: 257a58004b0f5c744974622669a03c75, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698888904463426, guid: 257a58004b0f5c744974622669a03c75, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698888904463426, guid: 257a58004b0f5c744974622669a03c75, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534368630840688, guid: 257a58004b0f5c744974622669a03c75, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114163929139884618, guid: 257a58004b0f5c744974622669a03c75,
+        type: 2}
+      propertyPath: beatObject
+      value: 
+      objectReference: {fileID: 1648577390}
+    - target: {fileID: 212982941021442312, guid: 257a58004b0f5c744974622669a03c75,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -1288980125
+      objectReference: {fileID: 0}
+    - target: {fileID: 212982941021442312, guid: 257a58004b0f5c744974622669a03c75,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534368630840688, guid: 257a58004b0f5c744974622669a03c75, type: 2}
+      propertyPath: m_Name
+      value: OrangeButton (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 257a58004b0f5c744974622669a03c75, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &812855814 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4698888904463426, guid: 257a58004b0f5c744974622669a03c75,
+    type: 2}
+  m_PrefabInternal: {fileID: 812855813}
 --- !u!1 &816482181
 GameObject:
   m_ObjectHideFlags: 0
@@ -9973,6 +10043,7 @@ Transform:
   - {fileID: 2111600914}
   - {fileID: 711571975}
   - {fileID: 1210286199}
+  - {fileID: 812855814}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
