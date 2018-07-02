@@ -1,6 +1,6 @@
 WebGL
 PlayerPath?
-D:/Loop_Petal/Loop-Petal/Loop-Petal/Builds/PlatProtoWebBuild
+D:/Loop_Petal/Loop-Petal/Loop-Petal/Builds/PlatProtoWebBuild2
 SceneListBegin?
 Assets/Scenes/Main.unity
 SceneListEnd?
