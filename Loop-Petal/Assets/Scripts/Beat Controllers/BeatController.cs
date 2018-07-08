@@ -65,7 +65,7 @@ public class BeatController : MonoBehaviour {
         ActivateObstacles();
     }
 
-    public void SetPlaying(float offset=0f)
+    public virtual void SetPlaying(float offset=0f)
     {
         BeatSource.Stop();
         isPlaying = true;

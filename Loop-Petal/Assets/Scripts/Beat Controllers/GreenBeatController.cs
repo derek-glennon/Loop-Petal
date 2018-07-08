@@ -29,6 +29,12 @@ public class GreenBeatController : BeatController {
         counter++;
     }
 
+    public override void SetPlaying(float offset = 0)
+    {
+        counter = intervalsPerBeat;
+        base.SetPlaying(offset);
+    }
+
     protected override void ActivateObstacles()
     {
         foreach (GameObject greenPlatform in GreenPlatforms)
