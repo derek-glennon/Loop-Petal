@@ -17,19 +17,19 @@ public class NoteEmitter : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-        if (player.alive)
-        {
-            if (Input.GetKeyDown("[5]"))
-            {
-                if (!player.blueActive)
-                {
-                    //Transform clone;
-                    //clone = Instantiate(BlueNote, transform.position, Quaternion.identity) as Transform;
-                }
+        //if (player.alive)
+        //{
+        //    if (Input.GetKeyDown("[5]"))
+        //    {
+        //        if (!player.blueActive)
+        //        {
+        //            Transform clone;
+        //            clone = Instantiate(BlueNote, transform.position, Quaternion.identity) as Transform;
+        //        }
 
-            }
+        //    }
 
-        }
+        //}
 
     }
 }

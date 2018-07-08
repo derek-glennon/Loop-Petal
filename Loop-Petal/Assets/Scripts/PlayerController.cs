@@ -14,27 +14,15 @@ public class PlayerController : MonoBehaviour {
     public Transform checkpoint;
     [HideInInspector]
     public bool alive = true;
-    [HideInInspector]
-    public bool blueActive = false;
-    [HideInInspector]
-    public bool blueLoop = false;
-    [HideInInspector]
-    public bool orangeActive = false;
-    [HideInInspector]
-    public bool orangeLoop = false;
-    [HideInInspector]
-    public bool rotateOrange = false;
 
     public float speed = 1.0f;
-    public float jumpForce = 1000f;
+    private float jumpSpeed = 4.5f;
+    private float shortJumpSpeed = 2.5f;
+    [HideInInspector]
+    public bool isJumping = false;
 
-    public bool bluePressed;
-
-    public bool orangePressed;
-
-    public Transform BlueNote;
-    public Transform OrangeNote;
-
+    //public Transform BlueNote;
+    //public Transform OrangeNote;
 
     private AudioSource BeatSource;
     public AudioClip JumpAudio;
@@ -45,17 +33,18 @@ public class PlayerController : MonoBehaviour {
     private Transform groundCheck;
     private bool onGround = false;
     private Animator anim;
-    private Rigidbody2D rb2d;
+    private Rigidbody2D rigidbody2d;
     //private Animator mouthAnim;
     private bool checkpointSet = false;
     private Animator currentCheckpoint;
-   //private Transform emitter;
+    //private Transform emitter;
 
     private CircleCollider2D colliderPlayer;
+    private bool jumpCancel;
 
     //Cheat Codes
     private List<GameObject> Checkpoints;
-    List<string> cheatInputs = new List<string>(new string[] { "1", "2", "3", "4", "5", "6", "7"});
+    List<string> cheatInputs = new List<string>(new string[] { "1", "2", "3", "4", "5", "6"});
 
 
     // Use this for initialization
@@ -64,14 +53,11 @@ public class PlayerController : MonoBehaviour {
         groundCheck = transform.Find("groundCheck");
         anim = GetComponent<Animator>();
         //mouthAnim = GameObject.Find("Mouth").GetComponent<Animator>();
-        rb2d = GetComponent<Rigidbody2D>();
+        rigidbody2d = GetComponent<Rigidbody2D>();
         //emitter = GameObject.Find("NoteEmitter").GetComponent<Transform>();
         BeatSource = GetComponent<AudioSource>();
 
         colliderPlayer = GetComponent<CircleCollider2D>();
-
-        bluePressed = false;
-        orangePressed = false;
 
         //Cheat Codes
         Checkpoints = new List<GameObject>();
@@ -88,10 +74,19 @@ public class PlayerController : MonoBehaviour {
 
         // The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
         onGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+
+        if (onGround)
+        {
+            isJumping = false;
+        }
         
         // If the jump button is pressed and the player is grounded then the player should jump.
         if ( (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow) ) && onGround)
             jump = true;
+
+        // if player is jumping and they let go of jump, then the jump momentum is less
+        if ((Input.GetButtonUp("Jump") || Input.GetKeyUp(KeyCode.UpArrow)) && !onGround && isJumping)
+            jumpCancel = true;
 
         //If player is dead and the death animation has finished, then respawn
         if (!alive && anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerNoiseDeath") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95f)
@@ -105,14 +100,10 @@ public class PlayerController : MonoBehaviour {
                 transform.position = Checkpoints[i].transform.position;
             }
         }
-
-
     }
 
     private void FixedUpdate()
     {
-
-
         //Get Horizontal Input
         float horizontal = Input.GetAxis("Horizontal");
 
@@ -143,6 +134,12 @@ public class PlayerController : MonoBehaviour {
             //Jump if able
             if (jump)
                 Jump();
+
+            // cancel the jump when the button is no longer pressed
+            if (jumpCancel)
+            {
+                CancelJump();
+            }
         }
 
         //Death Animation
@@ -183,36 +180,24 @@ public class PlayerController : MonoBehaviour {
         {
             Die();
         }
-
-
-        ////Loop Buttons
-        //if (other.gameObject.CompareTag("BlueButton"))
-        //{
-        //    bluePressed = true;
-        //}
-        //if (other.gameObject.CompareTag("OrangeButton"))
-        //{
-        //    orangePressed = true;
-        //}
-
     }
 
     private void Die()
     {
         alive = false;
         anim.SetTrigger("Die");
-        rb2d.constraints = RigidbodyConstraints2D.None;
-        rb2d.gravityScale = 0.0f;
-        rb2d.velocity = Vector3.zero;
+        rigidbody2d.constraints = RigidbodyConstraints2D.None;
+        rigidbody2d.gravityScale = 0.0f;
+        rigidbody2d.velocity = Vector3.zero;
         colliderPlayer.enabled = false;
     }
 
     private void Respawn()
     {
         alive = true;
-        rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
+        rigidbody2d.constraints = RigidbodyConstraints2D.FreezeRotation;
         transform.rotation = Quaternion.identity;
-        rb2d.gravityScale = 1.0f;
+        rigidbody2d.gravityScale = 1.0f;
         transform.position = checkpoint.position;
         colliderPlayer.enabled = true;
     }
@@ -228,12 +213,20 @@ public class PlayerController : MonoBehaviour {
 
     private void Jump()
     {
-        rb2d.AddForce(new Vector2(0f, jumpForce));
+        rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, jumpSpeed);
 
         BeatSource.clip = JumpAudio;
         BeatSource.Play();
 
         jump = false;
+        isJumping = true;
+    }
+
+    private void CancelJump()
+    {
+        if (rigidbody2d.velocity.y > shortJumpSpeed)
+            rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, shortJumpSpeed);
+        jumpCancel = false;
     }
 
     //public void EmitBlueNote()

@@ -45,6 +45,39 @@ public class BluePlatform : Platform {
         animator.SetBool("Active", true);
     }
 
+    public override void Update()
+    {
+        timeAlive += Time.deltaTime;
+
+        if (isActive)
+        {
+            if (timePassed < holdTime)
+            {
+                timePassed += Time.deltaTime;
+            }
+            else
+            {
+                isActive = false;
+                rb2d.gravityScale = 1.0f;
+            }
+        }
+
+        if (turnOff)
+        {
+            if (timePassed < holdTime)
+            {
+                timePassed += Time.deltaTime;
+            }
+            else
+            {
+                rb2d.gravityScale = 1.0f;
+            }
+        }
+
+        if (rb2d.velocity == Vector2.zero && inDeath)
+            alive = false;
+    }
+
     public override void Activate()
     {
         alive = true;
@@ -84,38 +117,7 @@ public class BluePlatform : Platform {
 
     }
 
-    public override void Update()
-    {
-        timeAlive += Time.deltaTime;
-
-        if (isActive)
-        {
-            if (timePassed < holdTime)
-            {
-                timePassed += Time.deltaTime;
-            }
-            else
-            {
-                isActive = false;
-                rb2d.gravityScale = 1.0f;
-            }
-        }
-
-        if (turnOff)
-        {
-            if (timePassed < holdTime)
-            {
-                timePassed += Time.deltaTime;
-            }
-            else
-            {
-                rb2d.gravityScale = 1.0f;
-            }
-        }
-
-        if (rb2d.velocity == Vector2.zero && inDeath)
-            alive = false;
-    }
+    
 
     private void OnTriggerEnter2D(Collider2D other)
     {

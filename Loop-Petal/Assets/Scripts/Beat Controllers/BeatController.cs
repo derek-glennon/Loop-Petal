@@ -28,7 +28,6 @@ public class BeatController : MonoBehaviour {
     [HideInInspector]
     public float startTime, nextTime;
 
-    private float nextOffBeat;
     private float timePassedOffBeat;
     
 
@@ -66,26 +65,21 @@ public class BeatController : MonoBehaviour {
         ActivateObstacles();
     }
 
-    public void SetPlaying()
+    public void SetPlaying(float offset=0f)
     {
+        BeatSource.Stop();
         isPlaying = true;
 
-        //round current time to nearest half second
-        startTime = (float)Math.Round(Time.time*2.0f)/2.0f;
+        //set next timestamp beat will play
+        nextTime = (Time.time + (beatInterval - (Time.time % beatInterval))) + offset;
 
-        nextTime = Time.time < startTime ? startTime : startTime + beatInterval;
-
-        //nextOffBeat = nextTime + 0.5f;
-
-        //set time passed 
-        timePassed = Time.time > startTime ? Time.time - startTime : beatInterval - (startTime - Time.time);
+        //set time passed
+        timePassed = beatInterval - (nextTime - Time.time);
     }
 
     public void StopPlaying()
     {
         isPlaying = false;
-
-        startTime = 0.0f;
 
         timePassed = 0.0f;
 

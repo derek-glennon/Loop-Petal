@@ -52,7 +52,6 @@ public class BlueSpawn : MonoBehaviour {
             {
                 if (!bluePlatforms[i].alive)
                 {
-
                     bluePlatforms[i].Activate();
                     return;
                 }
@@ -61,7 +60,6 @@ public class BlueSpawn : MonoBehaviour {
         //If all are active, activate the one that was activated the longest ago
         else if (currentlyActive == numberActive)
         {
-
             float[] timeAlives = new float[bluePlatforms.Length];
             for (int i = 0; i < bluePlatforms.Length; i++)
             {

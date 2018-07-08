@@ -75,6 +75,9 @@ public class GreenPlatform : Platform {
         if (isActive)
         {
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, otherPushForce));
+            if (collision.gameObject.tag == "Player") {
+                collision.gameObject.GetComponent<PlayerController>().isJumping = false;
+            }
         }
     }
 

@@ -7,12 +7,15 @@ public class ButtonController : MonoBehaviour {
     public GameObject beatObject;
     private BeatController beatController;
     private bool isPressed = false;
+    public int numberOfOptions = 1;
+    public int selectedOption = -1;
+    public float offset = 0.5f;
 
 	// Use this for initialization
 	void Start () {
         beatController = beatObject.GetComponent<BeatController>();
         animator = GetComponent<Animator>();
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -21,17 +24,12 @@ public class ButtonController : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player") && isPressed == false)
+        if (other.gameObject.CompareTag("Player"))
         {
             animator.SetTrigger("Pressed");
             isPressed = true;
-            beatController.SetPlaying();
-        }
-        else if (isPressed == true)
-        {
-            animator.SetTrigger("Pressed");
-            isPressed = false;
-            beatController.StopPlaying();
+            selectedOption = (selectedOption + 1) % numberOfOptions;
+            beatController.SetPlaying(selectedOption * offset);
         }
     }
 
