@@ -10401,7 +10401,7 @@ MonoBehaviour:
   BeatSource: {fileID: 0}
   beatUI: {fileID: 1258922658}
   beatMarker: {fileID: 0}
-  BeatClip: {fileID: 8300000, guid: 86d5e8bc5ab1a7d4db2622e6f1cee555, type: 3}
+  BeatClip: {fileID: 8300000, guid: a7d71b19acbeda2478eec82e99d90f2d, type: 3}
   beatType: 0
   isPlaying: 0
   playedThisFrame: 0

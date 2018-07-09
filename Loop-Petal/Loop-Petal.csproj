@@ -300,6 +300,7 @@
     <Compile Include="Assets\Scripts\BeatMover.cs" />
     <Compile Include="Assets\Scripts\BlueSpawn.cs" />
     <Compile Include="Assets\Scripts\ButtonController.cs" />
+    <Compile Include="Assets\Scripts\ButtonOption.cs" />
     <Compile Include="Assets\Scripts\CameraFollowMine.cs" />
     <Compile Include="Assets\Scripts\CheckpointController.cs" />
     <Compile Include="Assets\Scripts\MarkerController.cs" />
