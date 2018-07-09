@@ -11,16 +11,21 @@ public class MarkerController : MonoBehaviour {
     public GameObject beatObject;
     private BeatController beatController;
     private ParticleSystem particleSystem;
+    private RectTransform rectTransform;
+
+    public float startOffsetPosition;
 
 	// Use this for initialization
 	void Awake() {
         beatController = beatObject.GetComponent<BeatController>();
         particleSystem = GetComponent<ParticleSystem>();
+        rectTransform = GetComponent<RectTransform>();
         onScreen = false;
         image = GetComponent<Image>();
         color = image.color;
         color.a = 0.0f;
         image.color = color;
+        startOffsetPosition = rectTransform.anchoredPosition.x;
 	}
 	
 	// Update is called once per frame

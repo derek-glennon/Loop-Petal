@@ -6,7 +6,7 @@ public class ButtonController : MonoBehaviour {
     private Animator animator;
     public GameObject beatObject;
     private BeatController beatController;
-    private bool isPressed = false;
+    public bool isPressed = false;
     public int numberOfOptions = 1;
     public int selectedOption = -1;
     public float offset = 0.5f;

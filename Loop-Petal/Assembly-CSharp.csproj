@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BassController.cs" />
     <Compile Include="Assets\Scripts\Beat Controllers\BeatController.cs" />
     <Compile Include="Assets\Scripts\Beat Controllers\BlueBeatController.cs" />
     <Compile Include="Assets\Scripts\Beat Controllers\GreenBeatController.cs" />

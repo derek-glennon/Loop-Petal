@@ -13,6 +13,9 @@ public class BlueSpawn : MonoBehaviour {
     public GameObject BluePlatform;
     public BluePlatform[] bluePlatforms;
 
+    public float timeTillDeath;
+    public float holdTime;
+
     private SpriteRenderer spriteRenderer;
 
 	// Use this for initialization
@@ -23,11 +26,11 @@ public class BlueSpawn : MonoBehaviour {
 
         altSpawnInit = altSpawn;
 
-        for (int i = 0; i < numberActive; i++)
-        {
-            GameObject clone = Instantiate(BluePlatform, transform.position, transform.rotation) as GameObject;
-            clone.transform.parent = transform;
-        }
+        //for (int i = 0; i < numberActive; i++)
+        //{
+        //    GameObject clone = Instantiate(BluePlatform, transform.position, transform.rotation) as GameObject;
+        //    clone.transform.parent = transform;
+        //}
 
         bluePlatforms = GetComponentsInChildren<BluePlatform>();
 		
@@ -37,39 +40,44 @@ public class BlueSpawn : MonoBehaviour {
     {
         //There is probs a better way to do this
 
-        //Find how many are currently active
-        int currentlyActive = 0;
-        foreach (BluePlatform bluePlatform in bluePlatforms)
-        {
-            if (bluePlatform.alive)
-                currentlyActive++;
-        }
+        GameObject clone = Instantiate(BluePlatform, transform.position, transform.rotation) as GameObject;
+        clone.transform.parent = transform;
+        clone.GetComponent<BluePlatform>().timeTillDeath = timeTillDeath;
+        clone.GetComponent<BluePlatform>().holdTime = holdTime;
 
-        //If not all are active then activate one that is not 
-        if (currentlyActive < numberActive)
-        {
-            for (int i = 0; i < bluePlatforms.Length; i++)
-            {
-                if (!bluePlatforms[i].alive)
-                {
-                    bluePlatforms[i].Activate();
-                    return;
-                }
-            }
-        }
-        //If all are active, activate the one that was activated the longest ago
-        else if (currentlyActive == numberActive)
-        {
-            float[] timeAlives = new float[bluePlatforms.Length];
-            for (int i = 0; i < bluePlatforms.Length; i++)
-            {
-                timeAlives[i] = bluePlatforms[i].timeAlive;
-            }
-            float maxValue = timeAlives.Max();
-            int MaxIndex = timeAlives.ToList().IndexOf(maxValue);
-            bluePlatforms[MaxIndex].Activate();
-            return;
-        }
+        ////Find how many are currently active
+        //int currentlyActive = 0;
+        //foreach (BluePlatform bluePlatform in bluePlatforms)
+        //{
+        //    if (bluePlatform.alive)
+        //        currentlyActive++;
+        //}
+
+        ////If not all are active then activate one that is not 
+        //if (currentlyActive < numberActive)
+        //{
+        //    for (int i = 0; i < bluePlatforms.Length; i++)
+        //    {
+        //        if (!bluePlatforms[i].alive)
+        //        {
+        //            bluePlatforms[i].Activate();
+        //            return;
+        //        }
+        //    }
+        //}
+        ////If all are active, activate the one that was activated the longest ago
+        //else if (currentlyActive == numberActive)
+        //{
+        //    float[] timeAlives = new float[bluePlatforms.Length];
+        //    for (int i = 0; i < bluePlatforms.Length; i++)
+        //    {
+        //        timeAlives[i] = bluePlatforms[i].timeAlive;
+        //    }
+        //    float maxValue = timeAlives.Max();
+        //    int MaxIndex = timeAlives.ToList().IndexOf(maxValue);
+        //    bluePlatforms[MaxIndex].Activate();
+        //    return;
+        //}
     }
 
     public void Spawn()

@@ -17,6 +17,8 @@ public class BeatController : MonoBehaviour {
     public GameObject beatUI;
     [HideInInspector]
     public MarkerController beatMarker;
+    [HideInInspector]
+    public RectTransform beatTransform;
 
     public AudioClip BeatClip;
     public BeatType beatType = BeatType.None;
@@ -36,10 +38,12 @@ public class BeatController : MonoBehaviour {
         BeatSource = this.GetComponent<AudioSource>();
         BeatSource.clip = BeatClip;
         beatMarker = beatUI.GetComponent<MarkerController>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        beatTransform = beatUI.GetComponent<RectTransform>();
+
+    }
+
+    // Update is called once per frame
+    void Update () {
         if (isPlaying)
         {
             timePassed += Time.deltaTime;
@@ -70,11 +74,21 @@ public class BeatController : MonoBehaviour {
         BeatSource.Stop();
         isPlaying = true;
 
+
         //set next timestamp beat will play
         nextTime = (Time.time + (beatInterval - (Time.time % beatInterval))) + offset;
 
         //set time passed
         timePassed = beatInterval - (nextTime - Time.time);
+
+
+        //Set the Marker Position
+        if ((nextTime / 0.5f) % 2 != 0)
+            beatTransform.anchoredPosition = new Vector2(-beatMarker.startOffsetPosition, beatTransform.anchoredPosition.y);
+        else
+            beatTransform.anchoredPosition = new Vector2(beatMarker.startOffsetPosition, beatTransform.anchoredPosition.y);
+
+
     }
 
     public void StopPlaying()

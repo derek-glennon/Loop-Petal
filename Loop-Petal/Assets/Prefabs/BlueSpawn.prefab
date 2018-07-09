@@ -59,6 +59,8 @@ MonoBehaviour:
   BluePlatform: {fileID: 1873447216430878, guid: 2455aa41c6fee9948b01017d6d5f5144,
     type: 2}
   bluePlatforms: []
+  timeTillDeath: 0.5
+  holdTime: 0.3
 --- !u!212 &212268863703652452
 SpriteRenderer:
   m_ObjectHideFlags: 1

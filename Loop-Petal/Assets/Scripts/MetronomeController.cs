@@ -12,8 +12,6 @@ public class MetronomeController : MonoBehaviour {
 
     private RectTransform rectTransform;
 
-    //Image image;
-
     // Use this for initialization
     void Awake() {
         rectTransform = GetComponent<RectTransform>();
@@ -32,19 +30,16 @@ public class MetronomeController : MonoBehaviour {
         intervalSubtractValue = Time.time < Mathf.Round(Time.time) ? Mathf.Round(Time.time) - 1.0f : Mathf.Round(Time.time);
         intervalValue = Time.time - intervalSubtractValue;
 
-        Vector3 temp = rectTransform.rotation.eulerAngles;
+        //Vector3 temp = rectTransform.rotation.eulerAngles;
+        Vector2 temp = rectTransform.position;
 
-        //Set the rotation based on what part of a (0,1) interval you are on
-        if (intervalValue >=  0.0f && intervalValue <= 0.25f)
-            temp.z = 90.0f * (newValue);
+        if (intervalValue >= 0.0f && intervalValue <= 0.25f)
+            rectTransform.anchoredPosition = new Vector2( (1- newValue) * -100f, rectTransform.position.y);
         if (intervalValue >= 0.25f && intervalValue <= 0.50f)
-            temp.z = 90.0f * (1.0f - newValue);
+            rectTransform.anchoredPosition = new Vector2(newValue * 100f, rectTransform.position.y);
         if (intervalValue >= 0.50f && intervalValue <= 0.75f)
-            temp.z = -90.0f * (newValue);
+            rectTransform.anchoredPosition = new Vector2((1 - newValue) * 100f, rectTransform.position.y);
         if (intervalValue >= 0.75f && intervalValue <= 1.0f)
-            temp.z = -90.0f * (1.0f - newValue);
-
-
-        rectTransform.rotation = Quaternion.Euler(temp);
-	}
+            rectTransform.anchoredPosition = new Vector2(newValue * -100f, rectTransform.position.y);
+    }
 }
