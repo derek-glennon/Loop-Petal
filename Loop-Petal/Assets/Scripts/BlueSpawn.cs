@@ -4,14 +4,16 @@ using UnityEngine;
 using System.Linq;
 
 public class BlueSpawn : MonoBehaviour {
-    public int numberActive;
     public bool alternating;
     public bool altSpawn;
     private bool altSpawnInit;
     [HideInInspector]
     public bool isActive;
+
     public GameObject BluePlatform;
-    public BluePlatform[] bluePlatforms;
+    public GameObject GrowingBluePlatform;
+
+    private GrowingBluePlatform growingBlue;
 
     public float timeTillDeath;
     public float holdTime;
@@ -24,60 +26,32 @@ public class BlueSpawn : MonoBehaviour {
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = false;
 
+        GameObject clone = Instantiate(GrowingBluePlatform, transform.position, transform.rotation) as GameObject;
+        clone.transform.parent = transform;
+        growingBlue = clone.GetComponent<GrowingBluePlatform>();
+
         altSpawnInit = altSpawn;
-
-        //for (int i = 0; i < numberActive; i++)
-        //{
-        //    GameObject clone = Instantiate(BluePlatform, transform.position, transform.rotation) as GameObject;
-        //    clone.transform.parent = transform;
-        //}
-
-        bluePlatforms = GetComponentsInChildren<BluePlatform>();
 		
 	}
 
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public void SetGrowingPlatformScale(float timePassed)
+    {
+        growingBlue.SetScale(timePassed);
+    }
+
     public void CreatePlatform()
     {
-        //There is probs a better way to do this
-
         GameObject clone = Instantiate(BluePlatform, transform.position, transform.rotation) as GameObject;
         clone.transform.parent = transform;
         clone.GetComponent<BluePlatform>().timeTillDeath = timeTillDeath;
         clone.GetComponent<BluePlatform>().holdTime = holdTime;
-
-        ////Find how many are currently active
-        //int currentlyActive = 0;
-        //foreach (BluePlatform bluePlatform in bluePlatforms)
-        //{
-        //    if (bluePlatform.alive)
-        //        currentlyActive++;
-        //}
-
-        ////If not all are active then activate one that is not 
-        //if (currentlyActive < numberActive)
-        //{
-        //    for (int i = 0; i < bluePlatforms.Length; i++)
-        //    {
-        //        if (!bluePlatforms[i].alive)
-        //        {
-        //            bluePlatforms[i].Activate();
-        //            return;
-        //        }
-        //    }
-        //}
-        ////If all are active, activate the one that was activated the longest ago
-        //else if (currentlyActive == numberActive)
-        //{
-        //    float[] timeAlives = new float[bluePlatforms.Length];
-        //    for (int i = 0; i < bluePlatforms.Length; i++)
-        //    {
-        //        timeAlives[i] = bluePlatforms[i].timeAlive;
-        //    }
-        //    float maxValue = timeAlives.Max();
-        //    int MaxIndex = timeAlives.ToList().IndexOf(maxValue);
-        //    bluePlatforms[MaxIndex].Activate();
-        //    return;
-        //}
+        clone.transform.localScale = transform.localScale;
     }
 
     public void Spawn()
@@ -104,14 +78,6 @@ public class BlueSpawn : MonoBehaviour {
     public void Deactivate()
     {
         altSpawn = altSpawnInit;
-        foreach(BluePlatform bluePlatform in bluePlatforms)
-        {
-            bluePlatform.Deactivate();
-        }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }

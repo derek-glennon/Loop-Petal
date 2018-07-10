@@ -17,10 +17,10 @@ public class ButtonOption : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (parentButton.selectedOption == option && sprite.color != Color.black)
+        if (parentButton.selectedOption == option && sprite.color != Color.black && parentButton.isActive)
         {
             sprite.color = Color.black;
-        } else if (parentButton.selectedOption != option && sprite.color != startColor)
+        } else if (parentButton.selectedOption != option && sprite.color != startColor && parentButton.isActive)
         {
             sprite.color = startColor;
         }

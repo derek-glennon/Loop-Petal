@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\Platforms\BluePlatform.cs" />
     <Compile Include="Assets\Scripts\Platforms\DottedPlatform.cs" />
     <Compile Include="Assets\Scripts\Platforms\GreenPlatform.cs" />
+    <Compile Include="Assets\Scripts\Platforms\GrowingBluePlatform.cs" />
     <Compile Include="Assets\Scripts\Platforms\OrangePlatform.cs" />
     <Compile Include="Assets\Scripts\Platforms\Platform.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />

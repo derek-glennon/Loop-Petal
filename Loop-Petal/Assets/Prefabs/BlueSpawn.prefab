@@ -52,13 +52,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bffd688c1e926c44bbd0bc486c0556b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberActive: 3
   alternating: 0
   altSpawn: 0
   isActive: 0
   BluePlatform: {fileID: 1873447216430878, guid: 2455aa41c6fee9948b01017d6d5f5144,
     type: 2}
-  bluePlatforms: []
+  GrowingBluePlatform: {fileID: 1664469028482694, guid: 6e7aefe26edf25b4596668e98268031d,
+    type: 2}
   timeTillDeath: 0.5
   holdTime: 0.3
 --- !u!212 &212268863703652452

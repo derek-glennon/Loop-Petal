@@ -99,10 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c08cf08b67ef96c4490d9ed7e2d6dac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selfPushForce: 0
-  otherPushForce: 0
-  speed: 0
+  selfPushForce: 3000
+  otherPushForce: 750
+  otherVelocity: 8.25
+  speed: 1
+  delayTime: 0.2
+  timePassed: 0
   BluePlatforms: []
+  isActive: 0
 --- !u!212 &212853738952401702
 SpriteRenderer:
   m_ObjectHideFlags: 1

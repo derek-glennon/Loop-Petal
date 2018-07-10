@@ -43,7 +43,7 @@ public class BeatController : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    public virtual void Update () {
         if (isPlaying)
         {
             timePassed += Time.deltaTime;
