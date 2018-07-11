@@ -168,3 +168,4 @@ a899fc57eee3bda2c3b60464c47622fa Assembly-CSharp.dll:.BeatController
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CheckpointController
 b4fef63d9e9c86dcde848421a4af7624 Assembly-CSharp.dll:.BeatMover
 a8168bdf8a6ce5cac83f7b8bca09acd3 Assembly-CSharp.dll:.GrowingBluePlatform
+33392b8378e73f4d32451c73a66d7227 Assembly-CSharp.dll:.SongFinish
