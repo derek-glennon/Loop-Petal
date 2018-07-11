@@ -60,7 +60,7 @@ MonoBehaviour:
   GrowingBluePlatform: {fileID: 1664469028482694, guid: 6e7aefe26edf25b4596668e98268031d,
     type: 2}
   timeTillDeath: 0.5
-  holdTime: 0.3
+  holdTime: 0.1
 --- !u!212 &212268863703652452
 SpriteRenderer:
   m_ObjectHideFlags: 1

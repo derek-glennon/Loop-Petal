@@ -103,7 +103,7 @@ MonoBehaviour:
   otherPushForce: 750
   otherVelocity: 8.25
   speed: 1
-  delayTime: 0.2
+  delayTime: 0.3
   timePassed: 0
   BluePlatforms: []
   isActive: 0
