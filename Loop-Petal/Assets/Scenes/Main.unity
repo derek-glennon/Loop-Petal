@@ -3029,7 +3029,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &442043990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10389,6 +10389,7 @@ MonoBehaviour:
   isMoving: 0
   checkpoint: {fileID: 0}
   alive: 1
+  canMove: 1
   speed: 1.5
   isJumping: 0
   JumpAudio: {fileID: 0}
@@ -34499,6 +34500,7 @@ MonoBehaviour:
   isMoving: 0
   checkpoint: {fileID: 0}
   alive: 1
+  canMove: 1
   speed: 1
   isJumping: 0
   JumpAudio: {fileID: 0}
