@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour {
     public Transform checkpoint;
     [HideInInspector]
     public bool alive = true;
+    [HideInInspector]
+    public bool canMove = true;
+
 
     public float speed = 1.0f;
     private float jumpSpeed = 4.5f;
@@ -81,7 +84,7 @@ public class PlayerController : MonoBehaviour {
         }
         
         // If the jump button is pressed and the player is grounded then the player should jump.
-        if ( (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow) ) && onGround)
+        if ( (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow) ) && onGround && canMove)
             jump = true;
 
         // if player is jumping and they let go of jump, then the jump momentum is less
@@ -105,7 +108,9 @@ public class PlayerController : MonoBehaviour {
     private void FixedUpdate()
     {
         //Get Horizontal Input
-        float horizontal = Input.GetAxis("Horizontal");
+        float horizontal = 0.0f;
+        if (canMove)
+            horizontal = Input.GetAxis("Horizontal");
 
         //The animation will change depending on Input, rather than speed also set isMoving
         if (horizontal != 0)
@@ -189,7 +194,7 @@ public class PlayerController : MonoBehaviour {
         rigidbody2d.constraints = RigidbodyConstraints2D.None;
         rigidbody2d.gravityScale = 0.0f;
         rigidbody2d.velocity = Vector3.zero;
-        colliderPlayer.enabled = false;
+        colliderPlayer.isTrigger = true;
     }
 
     private void Respawn()
@@ -199,7 +204,7 @@ public class PlayerController : MonoBehaviour {
         transform.rotation = Quaternion.identity;
         rigidbody2d.gravityScale = 1.0f;
         transform.position = checkpoint.position;
-        colliderPlayer.enabled = true;
+        colliderPlayer.isTrigger = false;
     }
 
     private void Flip()

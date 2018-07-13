@@ -1,6 +1,6 @@
 WebGL
 PlayerPath?
-D:/Loop_Petal/Loop-Petal/Loop-Petal/Builds/WebBuild5
+D:/Loop_Petal/Loop-Petal/Loop-Petal/Builds/WebBuild6
 SceneListBegin?
 Assets/Scenes/Main.unity
 SceneListEnd?
@@ -121,6 +121,7 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
+54d85b2dc0907dee903deb1839a0d240 Assembly-CSharp.dll:.SongFinish
 2ea1ffbd0e92b224ce1320be7be943f9 Assembly-CSharp.dll:.OrangePlatform
 a6357f562775d476f2cf86f7b11dd9d7 Assembly-CSharp.dll:.BlueSpawn
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
@@ -153,7 +154,7 @@ e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 67a5f2c97205d2e41a8ed7c7ce898f6e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
 67a5f2c97205d2e41a8ed7c7ce898f6e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
-246de5cb9c9134154686112ecb171256 Assembly-CSharp.dll:.PlayerController
+b49c5392f40c90b468f22b9d5543eba4 Assembly-CSharp.dll:.PlayerController
 a899fc57eee3bda2c3b60464c47622fa Assembly-CSharp.dll:.OrangeBeatController
 467f2fad15b63913ab673c8463a62db0 Assembly-CSharp.dll:.GreenPlatform
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
@@ -168,4 +169,4 @@ a899fc57eee3bda2c3b60464c47622fa Assembly-CSharp.dll:.BeatController
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CheckpointController
 b4fef63d9e9c86dcde848421a4af7624 Assembly-CSharp.dll:.BeatMover
 a8168bdf8a6ce5cac83f7b8bca09acd3 Assembly-CSharp.dll:.GrowingBluePlatform
-33392b8378e73f4d32451c73a66d7227 Assembly-CSharp.dll:.SongFinish
+1fc0b344a1d98ba6353cc9dd556274b8 Assembly-CSharp.dll:.GravityScaleDecrease
