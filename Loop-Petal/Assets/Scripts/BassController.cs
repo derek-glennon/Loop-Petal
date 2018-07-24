@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BassController : MonoBehaviour {
 
-    public ButtonController firstButton;
+    public BeatController startBeat;
 
     public bool isPlaying = false;
 
@@ -18,7 +18,7 @@ public class BassController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (firstButton.isPressed && !isPlaying)
+        if (startBeat.firstNotePlayed && !isPlaying)
         {
             audioSource.Play();
             isPlaying = true;

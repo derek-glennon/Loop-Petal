@@ -2634,9 +2634,10 @@ MonoBehaviour:
   beatUI: {fileID: 816821888}
   beatMarker: {fileID: 0}
   beatTransform: {fileID: 0}
-  BeatClip: {fileID: 8300000, guid: c62bacad642ddfd4e86bb58d7fe96047, type: 3}
+  BeatClip: {fileID: 8300000, guid: f23c431d925680b47a9e69c980d2279f, type: 3}
   beatType: 0
   isPlaying: 0
+  firstNotePlayed: 0
   playedThisFrame: 0
   beatInterval: 1
   timePassed: 0
@@ -11194,15 +11195,16 @@ MonoBehaviour:
   beatUI: {fileID: 1258922658}
   beatMarker: {fileID: 0}
   beatTransform: {fileID: 0}
-  BeatClip: {fileID: 8300000, guid: 86d5e8bc5ab1a7d4db2622e6f1cee555, type: 3}
+  BeatClip: {fileID: 8300000, guid: 9284d5a22f61b504b91030c758492072, type: 3}
   beatType: 0
   isPlaying: 0
+  firstNotePlayed: 0
   playedThisFrame: 0
   beatInterval: 1
   timePassed: 0
   startTime: 0
   nextTime: 0
-  intervalsPerBeat: 4
+  intervalsPerBeat: 3
 --- !u!82 &893107704
 AudioSource:
   m_ObjectHideFlags: 0
@@ -27564,12 +27566,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1268920483}
---- !u!114 &1327699457 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114115223973228320, guid: c37a8fa9cd38a144a9bafccebaaa4e2d,
-    type: 2}
-  m_PrefabInternal: {fileID: 1970219796}
-  m_Script: {fileID: 11500000, guid: 86703d8e360415641bbeb799ce5c4a90, type: 3}
 --- !u!1001 &1335126204
 Prefab:
   m_ObjectHideFlags: 0
@@ -33457,9 +33453,10 @@ MonoBehaviour:
   beatUI: {fileID: 1628383956}
   beatMarker: {fileID: 0}
   beatTransform: {fileID: 0}
-  BeatClip: {fileID: 8300000, guid: 0a2305892dc5d7349af00331ecd65fc1, type: 3}
+  BeatClip: {fileID: 8300000, guid: c451d3c05b12ce844a40713d36aaadb5, type: 3}
   beatType: 0
   isPlaying: 0
+  firstNotePlayed: 0
   playedThisFrame: 0
   beatInterval: 1
   timePassed: 0
@@ -34730,7 +34727,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243922173713675934, guid: e3fb55e474c09a94cb1b719d3f7844c4,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 5d674eff19665524d8643bb51b68c382, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d8808412f812fe845a02398b495b40eb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -34827,7 +34824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27297d0aa257b7d4d9743e980ada696e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstButton: {fileID: 1327699457}
+  startBeat: {fileID: 893107703}
   isPlaying: 0
 --- !u!1001 &1912208225
 Prefab:

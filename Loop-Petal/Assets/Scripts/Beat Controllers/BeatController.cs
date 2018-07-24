@@ -23,6 +23,7 @@ public class BeatController : MonoBehaviour {
     public AudioClip BeatClip;
     public BeatType beatType = BeatType.None;
     public bool isPlaying;
+    public bool firstNotePlayed;
     public bool playedThisFrame = false;
     public float beatInterval = 1f;
     public float timePassed = 0f;
@@ -40,6 +41,8 @@ public class BeatController : MonoBehaviour {
         beatMarker = beatUI.GetComponent<MarkerController>();
         beatTransform = beatUI.GetComponent<RectTransform>();
 
+        firstNotePlayed = false;
+
     }
 
     // Update is called once per frame
@@ -52,6 +55,8 @@ public class BeatController : MonoBehaviour {
         if (isPlaying && Time.time >= nextTime)
         {
             PlayBeat();
+            if (!firstNotePlayed)
+                firstNotePlayed = true;
             playedThisFrame = true;
         } else
         {
