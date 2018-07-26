@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour {
     public bool canMove = true;
 
 
+
     public float speed = 1.0f;
     private float jumpSpeed = 4.5f;
     private float shortJumpSpeed = 2.5f;
@@ -42,13 +43,23 @@ public class PlayerController : MonoBehaviour {
     private Animator currentCheckpoint;
     //private Transform emitter;
 
-    private CircleCollider2D colliderPlayer;
+    private Collider2D colliderPlayer;
     private bool jumpCancel;
 
     //Cheat Codes
     private List<GameObject> Checkpoints;
-    List<string> cheatInputs = new List<string>(new string[] { "1", "2", "3", "4", "5", "6"});
+    List<string> cheatInputs = new List<string>(new string[] { "1", "2", "3", "4", "5", "6", "7"});
 
+    //Death Counter
+    [HideInInspector]
+    public int deathCount = 0;
+    public Text deathText;
+
+
+    private void Start()
+    {
+        deathText.text = "Deaths " + deathCount;
+    }
 
     // Use this for initialization
     void Awake () {
@@ -60,7 +71,7 @@ public class PlayerController : MonoBehaviour {
         //emitter = GameObject.Find("NoteEmitter").GetComponent<Transform>();
         BeatSource = GetComponent<AudioSource>();
 
-        colliderPlayer = GetComponent<CircleCollider2D>();
+        colliderPlayer = GetComponent<Collider2D>();
 
         //Cheat Codes
         Checkpoints = new List<GameObject>();
@@ -183,7 +194,8 @@ public class PlayerController : MonoBehaviour {
         //Death
         if (other.gameObject.CompareTag("Death"))
         {
-            Die();
+            if (alive)
+                Die();
         }
     }
 
@@ -195,6 +207,8 @@ public class PlayerController : MonoBehaviour {
         rigidbody2d.gravityScale = 0.0f;
         rigidbody2d.velocity = Vector3.zero;
         colliderPlayer.isTrigger = true;
+        deathCount++;
+        deathText.text = "Deaths: " + deathCount;
     }
 
     private void Respawn()
