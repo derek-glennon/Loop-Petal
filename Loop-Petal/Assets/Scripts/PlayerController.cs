@@ -34,8 +34,14 @@ public class PlayerController : MonoBehaviour {
     public AudioClip OrangeAudio;
 
 
-    private Transform groundCheck;
-    private bool onGround = false;
+    //Ground Checks
+    private GameObject[] groundChecks;
+    private Transform[] groundChecksTransforms;
+    private bool[] onGrounds;
+    private bool onGround;
+
+
+
     private Animator anim;
     private Rigidbody2D rigidbody2d;
     //private Animator mouthAnim;
@@ -64,7 +70,9 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Awake () {
 
-        groundCheck = transform.Find("groundCheck");
+        groundChecks = GameObject.FindGameObjectsWithTag("GroundCheck");
+        onGrounds = new bool[] { false, false, false };
+
         anim = GetComponent<Animator>();
         //mouthAnim = GameObject.Find("Mouth").GetComponent<Animator>();
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -86,14 +94,31 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        // The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
-        onGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+        //Check if any lines between the player and the ground checks hit the ground
+        for (int i = 0; i < onGrounds.Length; i++)
+        {
+            onGrounds[i] = Physics2D.Linecast(transform.position, groundChecks[i].GetComponent<Transform>().position, 1 << LayerMask.NameToLayer("Ground"));
+        }
+
+        //if any do hit, say that the player is on the ground.
+        for (int i = 0; i < onGrounds.Length; i++)
+        {
+            if (onGrounds[i])
+            {
+                onGround = true;
+                break;
+            }
+            else
+            {
+                onGround = false;
+            }
+        }
 
         if (onGround)
         {
             isJumping = false;
         }
-        
+
         // If the jump button is pressed and the player is grounded then the player should jump.
         if ( (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow) ) && onGround && canMove)
             jump = true;

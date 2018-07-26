@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class DottedPlatform : MonoBehaviour {
 
-    CircleCollider2D player;
+    Collider2D player;
 
     BoxCollider2D boxCollider;
 
 	// Use this for initialization
 	void Awake () {
 
-        player = GameObject.Find("Player").GetComponent<CircleCollider2D>();
+        player = GameObject.Find("Player").GetComponent<Collider2D>();
 
         boxCollider = GetComponent<BoxCollider2D>();
 

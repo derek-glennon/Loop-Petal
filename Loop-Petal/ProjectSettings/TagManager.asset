@@ -17,6 +17,7 @@ TagManager:
   - GreenPlatform
   - BlueSpawn
   - StopPlayerMovement
+  - GroundCheck
   layers:
   - Default
   - TransparentFX
