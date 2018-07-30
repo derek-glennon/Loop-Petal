@@ -55,6 +55,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Checkpoint
+    uniqueID: 1523630085
+    locked: 0
   - name: Player
     uniqueID: 3005987171
     locked: 0
@@ -64,8 +67,8 @@ TagManager:
   - name: Units
     uniqueID: 3727202629
     locked: 0
-  - name: Checkpoint
-    uniqueID: 1523630085
+  - name: Foreground
+    uniqueID: 3351007115
     locked: 0
   - name: UI
     uniqueID: 3059930817

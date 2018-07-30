@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour {
 
     private void Start()
     {
-        deathText.text = "Deaths " + deathCount;
+        deathText.text = "Deaths: " + deathCount;
     }
 
     // Use this for initialization
