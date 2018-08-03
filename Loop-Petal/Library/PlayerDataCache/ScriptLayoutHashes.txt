@@ -1,6 +1,6 @@
-WebGL
+WindowsStandalone
 PlayerPath?
-E:/Unity Projects/Loop-Petal/Loop-Petal/Builds/WebBuild7
+D:/Loop_Petal/Loop-Petal/Loop-Petal/Builds/PCBuild3/PCBuild3.exe
 SceneListBegin?
 Assets/Scenes/SwapPuzzlesTest.unity
 SceneListEnd?

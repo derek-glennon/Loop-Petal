@@ -139,6 +139,13 @@ public class PlayerController : MonoBehaviour {
                 transform.position = Checkpoints[i].transform.position;
             }
         }
+
+        //Quit Button
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+
     }
 
     private void FixedUpdate()
