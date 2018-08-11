@@ -42,7 +42,8 @@ public class BluePlatform : Platform {
 
         if (timeAlive >= holdTime)
         {
-            rb2d.gravityScale = 1.0f;
+            //rb2d.gravityScale = 1.0f;
+            rb2d.gravityScale = 0.75f;
         }
 
         if (deathTimer >= timeTillDeath)
