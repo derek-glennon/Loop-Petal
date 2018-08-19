@@ -25,8 +25,6 @@ public class PlayerController : MonoBehaviour {
     [HideInInspector]
     public bool isJumping = false;
 
-    //public Transform BlueNote;
-    //public Transform OrangeNote;
 
     private AudioSource BeatSource;
     public AudioClip JumpAudio;
