@@ -15,6 +15,7 @@ TextureImporter:
     21300020: Rear Paw
     21300022: Front Paw
     21300024: spirit dog_0
+    21300026: Rear Body
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -191,10 +192,10 @@ TextureImporter:
       name: Body
       rect:
         serializedVersion: 2
-        x: 480
-        y: 400
-        width: 520
-        height: 224
+        x: 351
+        y: 183
+        width: 386
+        height: 231
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -363,6 +364,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 4e442412248a8774cb17c539d2411626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rear Body
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 196
+        width: 284
+        height: 170
+      alignment: 9
+      pivot: {x: 0.08617025, y: 0.53973246}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 888f79c627bda494d92ba0dba96da989
       vertices: []
       indices: 
       edges: []
