@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour {
         groundChecks = GameObject.FindGameObjectsWithTag("GroundCheck");
         onGrounds = new bool[] { false, false, false };
 
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         //mouthAnim = GameObject.Find("Mouth").GetComponent<Animator>();
         rigidbody2d = GetComponent<Rigidbody2D>();
         //emitter = GameObject.Find("NoteEmitter").GetComponent<Transform>();
@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour {
             jumpCancel = true;
 
         //If player is dead and the death animation has finished, then respawn
-        if (!alive && anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerNoiseDeath") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95f)
+        if (!alive && anim.GetCurrentAnimatorStateInfo(0).IsName("Death") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.90f)
             Respawn();
 
         //Cheats to help me test stuff out
@@ -264,8 +264,10 @@ public class PlayerController : MonoBehaviour {
     {
         rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, jumpSpeed);
 
-        BeatSource.clip = JumpAudio;
-        BeatSource.Play();
+        anim.SetTrigger("Jump");
+
+        //BeatSource.clip = JumpAudio;
+        //BeatSource.Play();
 
         jump = false;
         isJumping = true;
