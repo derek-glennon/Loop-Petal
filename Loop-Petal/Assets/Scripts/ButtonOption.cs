@@ -7,22 +7,24 @@ public class ButtonOption : MonoBehaviour {
     public int option;
     private Color startColor;
     private SpriteRenderer sprite;
+    private ParticleSystem particle;
 
 	// Use this for initialization
 	void Start () {
         parentButton = this.transform.GetComponentInParent<ButtonController>();
+        particle = this.GetComponent<ParticleSystem>();
         sprite = GetComponent<SpriteRenderer>();
         startColor = sprite.color;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (parentButton.selectedOption == option && sprite.color != Color.black && parentButton.isActive)
+        if (parentButton.selectedOption == option && particle.isStopped && parentButton.isActive)
         {
-            sprite.color = Color.black;
-        } else if (parentButton.selectedOption != option && sprite.color != startColor && parentButton.isActive)
+            particle.Play();
+        } else if (parentButton.selectedOption != option && particle.isPlaying && parentButton.isActive)
         {
-            sprite.color = startColor;
+            particle.Stop();
         }
 	}
 }
